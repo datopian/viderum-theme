@@ -1,0 +1,13 @@
+/*
+Theme Name: Viderum
+Theme URI:
+Author: Goce Mitevski
+Description: The official WordPress theme of Viderum Inc.
+Version: 0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: viderum
+Tags: viderum
+*/
+
+@import 'assets/css/style.css';
