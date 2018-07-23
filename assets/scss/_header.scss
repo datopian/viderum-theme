@@ -4,6 +4,18 @@
     }    
 }
 
+.site-title{
+    margin: 0;
+    font-size: $h2-font-size;
+    font-weight: $font-weight-bold;
+    line-height: $headings-line-height;
+    letter-spacing: 3px;
+}
+
+.site-description{
+    margin-bottom: 0;
+}
+
 .custom-header-media{
     display: flex;
     flex-direction: column;
