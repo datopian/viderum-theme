@@ -1,6 +1,8 @@
 <?php
 
-wp_nav_menu( array(
+wp_nav_menu (array(
     'theme_location' => 'main',
-    'menu_id' => 'main-menu',
+    'container_id' => 'mainNavContent',
+    'container_class' => 'collapse navbar-collapse d-flex',
+    'menu_class' => 'menu main-menu ml-auto nav'
 ) );
