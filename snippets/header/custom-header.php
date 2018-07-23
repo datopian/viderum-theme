@@ -16,6 +16,9 @@ $theme_settings = get_theme_settings();
                         <?php if ( isset( $theme_settings[ 'hero_description' ] ) ): ?>
                             <p class="lead"><?php echo esc_html( $theme_settings[ 'hero_description' ] ); ?></p>
                         <?php endif; ?>
+                        <?php if ( isset( $theme_settings[ 'hero_link' ] ) ): ?>
+                            <a href="<?php echo the_permalink( $theme_settings[ 'hero_link' ] ) ?>" class="btn btn-lg btn-primary btn-hero"><?php echo __( 'More about', 'viderum' ) . ' ' . get_the_title( $theme_settings[ 'hero_link' ] ); ?></a>
+                        <?php endif; ?>    
                     <?php else: ?>
                         <h1 class="page-title"><?php single_post_title(); ?></h1>
                     <?php endif; ?>
