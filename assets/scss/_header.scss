@@ -33,6 +33,7 @@
 
 .page-title{
     font-size: $h3-font-size*2;
+    margin-bottom: 0;
 }
 
 .wp-custom-header{
@@ -54,4 +55,9 @@
 .custom-logo{
     width: auto;
     max-height: $grid-gutter-width*2;
+    margin-right: $spacer*3;
+}
+
+.btn-hero{
+    margin-top: $spacer;
 }

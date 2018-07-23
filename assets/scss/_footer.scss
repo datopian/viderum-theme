@@ -1,0 +1,16 @@
+.site-footer{
+
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+    color: $white;
+
+    .widget{
+        margin-top: $spacer*2;
+        margin-bottom: $spacer*2;
+    }
+
+    .widgettitle{
+        @extend .text-uppercase;
+        @extend .h5;
+    }
+}
