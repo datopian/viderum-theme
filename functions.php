@@ -119,3 +119,44 @@ function google_search_console_tags() {
 }
 
 add_action( 'wp_head', 'google_search_console_tags' );
+
+/* Override default WordPress logo on wp-login.php */
+
+function viderum_theme_login_logo() {
+
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+    $image = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+
+    ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo esc_url( $image[ 0 ] ); ?>);
+            width: 225px;
+            background-size: 225px auto;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <?php
+
+}
+
+add_action( 'login_enqueue_scripts', 'viderum_theme_login_logo' );
+
+/*
+ * Initialize widget sections and custom widgets
+ */
+
+function viderum_widgets_init() {
+    register_sidebar(
+            array(
+                'name' => __( 'Footer Sidebar', 'viderum' ),
+                'description' => __( 'Reserved for widgets shown in the footer section of the theme.', 'viderum' ),
+                'id' => 'sidebar-footer',
+                'before_widget' => '<div class="widget widget-footer">',
+                'after_widget' => '</div>',
+            )
+    );
+
+}
+
+add_action( 'widgets_init', 'viderum_widgets_init' );
