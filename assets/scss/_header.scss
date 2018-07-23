@@ -1,0 +1,45 @@
+.home{
+    .custom-header-media{
+        min-height: $spacer*38;
+    }    
+}
+
+.custom-header-media{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-color: $primary;
+    padding: $spacer*5 0;
+}
+
+.page-header{
+    color: $white;
+    z-index: 1;
+}
+
+.page-title{
+    font-size: $h3-font-size*2;
+}
+
+.wp-custom-header{
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img{
+        min-width: 100%;
+        height: auto;
+    }
+}
+
+.custom-logo{
+    width: auto;
+    max-height: $grid-gutter-width*2;
+}

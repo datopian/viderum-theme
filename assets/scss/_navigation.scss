@@ -1,0 +1,61 @@
+.main-navbar{
+    padding: $spacer $spacer*2;
+    @extend .text-uppercase;
+}
+
+.menu-item{
+    @extend .nav-item;
+    @extend .nav-item;
+    line-height: $headings-line-height;
+
+    a{
+        @extend .nav-link;
+        color: $gray-800;
+    }
+
+    &:hover{
+        a{
+            color: $white;
+            background-color: $secondary;
+        }
+    }
+
+    &.current_page_item{
+        > a{
+            color: $white;
+            background-color: $secondary;
+        }
+    }
+}
+
+.sub-menu{
+    @extend .list-unstyled;
+    display: none;
+}
+
+.menu-item-has-children{
+    position: relative;
+    > a{
+        &:before{
+            @include material-icon('\e5c5');
+            float: right;
+            vertical-align: middle;
+            padding-left: $grid-gutter-width/6;
+        }
+
+    }
+    &:hover{
+        .sub-menu{
+            z-index: 999;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            padding-left: 0;
+            display: block;
+        }
+        &:before{
+            color: currentColor;
+
+        }
+    }
+}

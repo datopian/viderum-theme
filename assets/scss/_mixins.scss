@@ -1,0 +1,4 @@
+@mixin material-icon($icon) {
+  font-family: "Material Icons";
+  content: $icon;
+}
