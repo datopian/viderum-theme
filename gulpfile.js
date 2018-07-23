@@ -4,7 +4,7 @@ var cleanCSS = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
 
 // The default Gulp.js task
-gulp.task('default', ['js', 'sass', 'watch']);
+gulp.task('default', ['icons', 'js', 'sass', 'watch']);
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task("sass", function () {
@@ -33,6 +33,14 @@ gulp.task("js", function () {
                 "node_modules/popper.js/dist/umd/popper.min.js"
             ])
             .pipe(gulp.dest("assets/js"));
+});
+
+// Copy Material Design icons to assets/fonts/
+gulp.task('icons', function () {
+  return gulp.src([
+      'node_modules/material-design-icons/iconfont/*'
+    ])
+    .pipe(gulp.dest('assets/fonts'));
 });
 
 // Watch for LESS and JS file changes
