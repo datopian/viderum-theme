@@ -1,8 +1,11 @@
 <div class="site-branding">
-    <div class="wrap">
+    <?php
 
-        <?php the_custom_logo(); ?>
+    if ( has_custom_logo() ):
+        the_custom_logo();
+    else:
 
+        ?>
         <div class="site-branding-text">
             <?php if ( is_front_page() ) : ?>
                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -20,5 +23,7 @@
                 <p class="site-description"><?php echo $description; ?></p>
             <?php endif; ?>
         </div><!-- .site-branding-text -->
-    </div><!-- .wrap -->
+    <?php endif;
+
+    ?>
 </div><!-- .site-branding -->
