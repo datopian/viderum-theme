@@ -6,7 +6,16 @@
  * TwentySeventeen is licensed under GPLv2 or later.
  */
 
-get_template_part( 'inc/options', 'extras' );
+/*
+ * Initialize Departments user taxonomy
+ */
+
+get_template_part( '/inc/departments' );
+
+/*
+ * Initialize Service widget
+ */
+get_template_part( '/snippets/widgets/class', 'service' );
 
 // Initialize the Viderum theme
 function viderum_setup() {
@@ -17,7 +26,7 @@ function viderum_setup() {
     load_theme_textdomain( 'viderum' );
 
     // Load theme settings class
-    require_once dirname( __FILE__ ) . '/inc/class-viderum-theme-settings.php';
+    get_template_part( '/inc/class-viderum-theme-settings' );
 
     // Add default posts and comments RSS feed links to head.
     add_theme_support( 'automatic-feed-links' );
@@ -38,6 +47,7 @@ function viderum_setup() {
     // This theme uses wp_nav_menu() in two locations.
     register_nav_menus( array(
         'main' => __( 'Main Navigation', 'viderum' ),
+        'call_to_action' => __( 'Call to Action Navigation', 'viderum' ),
         'footer' => __( 'Footer Navigation', 'viderum' ),
         'social' => __( 'Social Links Menu', 'viderum' ),
     ) );
@@ -156,6 +166,32 @@ function viderum_widgets_init() {
                 'after_widget' => '</div>',
             )
     );
+
+    register_sidebar(
+            array(
+                'name' => __( 'Services Sidebar', 'viderum' ),
+                'description' => __( 'Reserved for Service widgets and shown only on the front page.', 'viderum' ),
+                'id' => 'sidebar-services',
+                'before_widget' => '<div class="col-md-6 col-xl-4 widget widget-service">',
+                'after_widget' => '</div>',
+            )
+    );
+
+    register_sidebar(
+            array(
+                'name' => __( 'Partners Sidebar', 'viderum' ),
+                'description' => __( 'Reserved for image widgets and shown only on the front page.', 'viderum' ),
+                'id' => 'sidebar-partners',
+                'before_widget' => '<div class="widget widget-partner">',
+                'after_widget' => '</div>',
+            )
+    );
+
+
+    // Initialize Service widget
+    if ( class_exists( 'Service' ) ) :
+        register_widget( 'Service' );
+    endif;
 
 }
 
