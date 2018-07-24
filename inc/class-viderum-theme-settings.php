@@ -184,6 +184,8 @@ class Viderum_Theme_Settings {
             </select>
             <?php
 
+        else:
+            printf( "<p>%s</p>", __( 'No pages available for selection', 'viderum' ) );
         endif;
 
     }
