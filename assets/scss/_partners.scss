@@ -1,0 +1,31 @@
+.partners{
+    margin: $spacer*4 auto;
+    .title{
+        padding: $spacer*2 $spacer*2 $spacer;
+        @extend .display-4;
+        @extend .text-center;
+    }
+
+    .list{
+        @extend .d-flex;
+        @extend .flex-wrap;
+        @extend .justify-content-center;
+        @extend .align-items-center;
+    }
+
+    .row{
+        @extend .align-items-center;
+        @extend .justify-content-center;
+    }
+
+    .widget-partner{
+        margin: $spacer*3 $spacer*3 $spacer*2;
+        .image{
+            max-height: $logo-height + $grid-gutter-width;
+            width: auto;
+        }
+        .widgettitle{
+            display: none;
+        }
+    }
+}

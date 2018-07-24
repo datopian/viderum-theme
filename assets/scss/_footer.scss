@@ -1,16 +1,26 @@
 .site-footer{
 
-    padding-top: $spacer;
-    padding-bottom: $spacer;
+    padding-top: $spacer*2;
+    padding-bottom: $spacer*2;
     color: $white;
 
+    .container{
+        @extend .d-flex;
+        @extend .flex-wrap;
+        @extend .justify-content-between;
+    }
+
     .widget{
-        margin-top: $spacer*2;
-        margin-bottom: $spacer*2;
+        margin-top: $spacer;
+        margin-bottom: $spacer;
     }
 
     .widgettitle{
         @extend .text-uppercase;
         @extend .h5;
+    }
+    
+    .textwidget{
+        color: lighten($secondary, 20%);
     }
 }

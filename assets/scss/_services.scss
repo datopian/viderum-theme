@@ -1,0 +1,46 @@
+.services{
+    @extend .d-flex;
+    @extend .justify-content-between;
+
+    .container{
+        border-bottom: $hr-border-width*2 solid $hr-border-color;
+    }
+
+    .widget-service{
+        margin-top: $spacer*2;
+        margin-bottom: $spacer*2;
+    }
+    .service-item{
+        @extend .nav-item;
+        @extend .nav-link;
+        @extend .d-flex;
+        @extend .flex-column;
+        @extend .align-items-start;
+        min-height: 100%;
+    }
+
+    .service-description{
+        margin: $spacer auto;
+    }
+
+    .widgettitle{
+        @extend .h3;
+        @extend .text-uppercase;
+    }
+
+    .btn-discover{
+        padding: 0;
+        font-weight: $font-weight-bold;
+        &:hover{
+            &:after{
+                margin-left: $spacer/2;
+            }
+        }
+        &:after{
+            vertical-align: middle;
+            margin-left: $spacer/4;
+            @include material-icon('\e315');
+        }
+    }
+
+}

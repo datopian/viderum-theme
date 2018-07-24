@@ -7,6 +7,7 @@
         line-height: $headings-line-height;
 
         a{
+            @extend .btn;
             @extend .nav-link;
             color: $gray-800;
         }
@@ -33,9 +34,15 @@
 
     .menu-item-has-children{
         position: relative;
+        
+        .menu-item{
+            a{
+                text-align: left;
+            }
+        }
         > a{
             &:before{
-                @include material-icon('\e5c5');
+                @include material-icon('\e313');
                 float: right;
                 vertical-align: middle;
                 padding-left: $grid-gutter-width/6;
@@ -72,6 +79,15 @@
                 padding: $spacer $spacer/2;
                 color: inherit;
             }
+        }
+    }
+
+    .call-to-action-menu{
+        margin-right: $spacer*2;
+        a{
+            color: inherit;
+            @extend .text-light;
+            @extend .btn-primary;
         }
     }
 }
