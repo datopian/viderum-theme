@@ -1,6 +1,6 @@
-</div><!-- .container -->
+</main>
 <footer class="site-footer bg-dark">
-    <div class="container d-flex flex-wrap justify-content-between">
+    <div class="container">
         <?php get_template_part( '/snippets/sidebars/sidebar', 'footer' ); ?>
     </div>
 </footer>
