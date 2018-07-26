@@ -16,6 +16,12 @@
     margin-bottom: 0;
 }
 
+.custom-header{
+    .container{
+        position: relative;
+    }
+}
+
 .custom-header-media{
     display: flex;
     flex-direction: column;
@@ -23,10 +29,19 @@
     position: relative;
     overflow: hidden;
     background-color: $primary;
-    padding: $spacer*5 0;
+    padding: $spacer*4 0;
+}
+
+.custom-header-icon{
+    position: absolute;
+    img{
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 .page-header{
+    position: relative;
     color: $white;
     z-index: 1;
 }

@@ -83,11 +83,29 @@
     }
 
     .call-to-action-menu{
-        margin-right: $spacer*2;
         a{
             color: inherit;
             @extend .text-light;
             @extend .btn-primary;
+        }
+    }
+}
+
+.wrap-breadcrumbs{
+    background-color: $gray-200;
+}
+
+.breadcrumb {
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+
+    li {
+        // Trim last two breadcrumb items
+        &:nth-last-child(-n + 2) {
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 }

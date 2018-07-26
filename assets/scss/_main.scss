@@ -1,0 +1,42 @@
+.site-main{
+    margin-top: $spacer*3;
+    margin-bottom: $spacer*3;
+    word-break: break-word;
+}
+
+.widget-page{
+    margin-bottom: $spacer*2;
+}
+
+.archive{
+    .hentry{
+        margin-bottom: $spacer*5;
+    }
+    .post-thumbnail{
+        margin: $spacer 0;
+    }
+}
+
+.entry-meta{
+    margin-bottom: $spacer;
+}
+
+
+.entry-footer{
+    margin-top: $spacer*2;
+}
+
+.hentry{
+    img{
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+table{
+    @extend .table;
+}
+
+.breadcrumb{
+    margin-bottom: 0;
+}

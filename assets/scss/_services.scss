@@ -9,6 +9,12 @@
     .widget-service{
         margin-top: $spacer*2;
         margin-bottom: $spacer*2;
+
+        .widgettitle{
+            @extend .h3;
+            @extend .text-uppercase;
+        }
+
     }
     .service-item{
         @extend .nav-item;
@@ -22,25 +28,19 @@
     .service-description{
         margin: $spacer auto;
     }
+}
 
-    .widgettitle{
-        @extend .h3;
-        @extend .text-uppercase;
-    }
-
-    .btn-discover{
-        padding: 0;
-        font-weight: $font-weight-bold;
-        &:hover{
-            &:after{
-                margin-left: $spacer/2;
-            }
-        }
+.btn-discover{
+    padding: 0;
+    font-weight: $font-weight-bold;
+    &:hover{
         &:after{
-            vertical-align: middle;
-            margin-left: $spacer/4;
-            @include material-icon('\e315');
+            margin-left: $spacer/2;
         }
     }
-
+    &:after{
+        vertical-align: middle;
+        margin-left: $spacer/4;
+        @include material-icon('\e315');
+    }
 }
