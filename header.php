@@ -20,21 +20,14 @@
             <?php if ( has_nav_menu( 'call_to_action' ) ) : ?>
                 <?php get_template_part( 'snippets/navigation/navigation', 'call-to-action' ); ?>
             <?php endif; ?>
-
-            <ul class="list-inline list-languages">
-                <?php
-
-                $languages = pll_the_languages( array(
-                    'hide_if_empty' => 0,
-                    'display_names_as' => 'slug',
-                        ) );
-
-                ?>
-            </ul>
         </nav>
         <?php
+
+        if ( !is_front_page() ):
+            get_template_part( '/snippets/navigation/navigation', 'breadcrumbs' );
+        endif;
 
         get_template_part( 'snippets/header/custom', 'header' );
 
         ?>
-        <main role="main">
+        <main class="site-main" role="main">
