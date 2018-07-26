@@ -11,6 +11,7 @@
  */
 
 get_template_part( '/inc/departments' );
+get_template_part( '/inc/template-tags' );
 
 /*
  * Initialize Service widget
@@ -157,6 +158,26 @@ add_action( 'login_enqueue_scripts', 'viderum_theme_login_logo' );
  */
 
 function viderum_widgets_init() {
+    register_sidebar(
+            array(
+                'name' => __( 'Page Sidebar', 'viderum' ),
+                'description' => __( 'Reserved for widgets shown on all pages.', 'viderum' ),
+                'id' => 'sidebar-page',
+                'before_widget' => '<div class="widget widget-page">',
+                'after_widget' => '</div>',
+            )
+    );
+
+    register_sidebar(
+            array(
+                'name' => __( 'Post Sidebar', 'viderum' ),
+                'description' => __( 'Reserved for widgets shown on all posts.', 'viderum' ),
+                'id' => 'sidebar-post',
+                'before_widget' => '<div class="widget widget-post">',
+                'after_widget' => '</div>',
+            )
+    );
+
     register_sidebar(
             array(
                 'name' => __( 'Footer Sidebar', 'viderum' ),
