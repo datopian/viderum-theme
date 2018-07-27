@@ -1,9 +1,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php if ( is_sticky() && is_home() ) : ?>
+    <?php if ( is_sticky() ) : ?>
         <span class="material-icons">pin_drop</span>
     <?php endif; ?>
 
-    <?php if ( is_archive() ) : ?>
+    <?php if ( is_home() || is_archive() || is_search() ) : ?>
         <header class="entry-header">
             <?php
 
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <?php
 
-        if ( is_archive() || is_search() ):
+        if ( is_home() || is_archive() || is_search() ):
             the_excerpt();
 
             ?>
