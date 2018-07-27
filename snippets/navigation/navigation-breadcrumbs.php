@@ -64,7 +64,7 @@ if ( !is_front_page() ) {
     <?php
 
     // Build the breadcrums
-    echo '<nav class="wrap-breadcrumbs"><div class="container"><ol id="' . esc_attr( $breadcrums_id ) . '" class="' . esc_attr( $breadcrums_class ) . '">';
+    echo '<nav class="wrap-breadcrumbs"><div class="container-fluid"><div class="col-lg-8 offset-lg-2"><ol id="' . esc_attr( $breadcrums_id ) . '" class="' . esc_attr( $breadcrums_class ) . '">';
 
     // Home page
     breadcrumb_item( get_home_url(), __( 'Home', 'viderum' ) );
@@ -232,5 +232,5 @@ if ( !is_front_page() ) {
         breadcrumb_item( false, __( 'Page ', 'viderum' ) . get_query_var( 'paged' ), 'span' );
     }
 
-    echo '</ol></div></nav>';
+    echo '</ol></div></div></nav>';
 }// End if().
