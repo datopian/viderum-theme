@@ -7,9 +7,11 @@ if ( is_active_sidebar( $sidebar_id ) ) :
     ?>
 
     <div class="services">
-        <div class="container">
-            <div class="row">
-                <?php dynamic_sidebar( $sidebar_id ); ?>
+        <div class="container-fluid">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="row services-border">
+                    <?php dynamic_sidebar( $sidebar_id ); ?>
+                </div>
             </div>
         </div>
     </div>
