@@ -10,7 +10,7 @@
         <nav class="navbar main-navbar navbar-expand-lg">
             <?php get_template_part( 'snippets/header/site', 'branding' ); ?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavContent" aria-controls="mainNavContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="material-icons">menu</span>
             </button>
 
             <?php if ( has_nav_menu( 'main' ) ) : ?>
