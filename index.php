@@ -5,37 +5,40 @@ get_header();
 if ( have_posts() ):
 
     ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                <?php
+    <div class="container-fluid">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="row">
+                <div class="col-lg-7">
+                    <?php
 
-                while ( have_posts() ):
+                    while ( have_posts() ):
 
-                    the_post();
+                        the_post();
+
+                        if ( is_page() ):
+                            get_template_part( '/snippets/page/content', 'page' );
+                        else:
+                            get_template_part( '/snippets/post/content' );
+                        endif;
+
+                    endwhile;
+                    
+                    get_template_part( '/snippets/navigation/navigation', 'pagination' );
+
+                    ?>
+                </div>
+                <div class="col-lg-4 offset-lg-1">
+                    <?php
 
                     if ( is_page() ):
-                        get_template_part( '/snippets/page/content', 'page' );
+                        get_template_part( '/snippets/sidebars/sidebar', 'page' );
                     else:
-                        get_template_part( '/snippets/post/content' );
+                        get_template_part( 'sidebar' );
                     endif;
 
-
-                endwhile;
-
-                ?>
-            </div>
-            <div class="col-md-4 offset-md-1">
-                <?php
-
-                if ( is_page() ):
-                    get_template_part( '/snippets/sidebars/sidebar', 'page' );
-                else:
-                    get_template_part( 'sidebar');
-                endif;
-
-                ?>
-            </div>
+                    ?>
+                </div>
+            </div>    
         </div>
     </div>
     <?php
