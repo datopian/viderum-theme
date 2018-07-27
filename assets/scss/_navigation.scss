@@ -1,5 +1,18 @@
 .main-navbar{
-    padding: $spacer $spacer*2;
+    padding: $spacer*1.5;
+
+    .collapsing,
+    .collapse.show{
+        .menu{
+            margin: $spacer auto;
+            flex-direction: column;
+            margin-left: 0;
+
+            a{
+                text-align: left;
+            }
+        }
+    }
 
     .menu-item{
         @extend .text-uppercase;
@@ -29,12 +42,11 @@
 
     .sub-menu{
         @extend .list-unstyled;
-        display: none;
     }
 
     .menu-item-has-children{
         position: relative;
-        
+
         .menu-item{
             a{
                 text-align: left;
@@ -49,46 +61,21 @@
             }
 
         }
-        &:hover{
-            .sub-menu{
-                z-index: 999;
-                position: absolute;
-                top: 100%;
-                padding-left: 0;
-                display: block;
-            }
-            &:before{
-                color: currentColor;
 
-            }
-        }
-    }
-
-    .list-languages{
-        @extend .text-uppercase;
-        margin-bottom: 0;
-
-        .lang-item{
-            @extend .list-inline-item;
-            &.current-lang{
-                a{
-                    color: $primary;
-                }
-            }
-            a{
-                padding: $spacer $spacer/2;
-                color: inherit;
-            }
-        }
     }
 
     .call-to-action-menu{
+        @extend .ml-3;
         a{
             color: inherit;
             @extend .text-light;
             @extend .btn-primary;
         }
     }
+}
+
+.main-menu{
+    margin-left: $spacer*3;
 }
 
 .wrap-breadcrumbs{
@@ -106,6 +93,28 @@
         &:nth-last-child(-n + 2) {
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+    }
+}
+
+.page-numbers {
+    @extend .pagination;
+    margin: $grid-gutter-width/2 0;
+
+    li{
+        @extend .page-item;
+    }
+
+    .page-numbers{
+        @extend .page-link;
+
+        &.current {
+            @extend .btn;
+            @extend .btn-primary;
+            padding: $btn-padding-y $btn-padding-x;
+        }
+        &.dots{
+            @extend .disabled;
         }
     }
 }

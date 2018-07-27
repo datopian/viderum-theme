@@ -1,0 +1,47 @@
+.widget{
+    select{
+        @extend .custom-select;
+    }
+
+    .searchform{
+        position: relative;
+        min-height: $input-height;
+        input[type=text]{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            margin-right: $spacer*3;
+            @extend .form-control;
+        }
+        input[type=submit]{
+            position: absolute;
+            right: 0;
+            top: 0;
+            @extend .btn;
+            @extend .btn-secondary;
+        }
+    }
+}
+
+.widget-page{
+    margin-bottom: $spacer*2;
+}
+
+
+.site-footer{
+    .widget{
+        margin-top: $spacer;
+        margin-bottom: $spacer;
+    }
+
+    .widgettitle{
+        @extend .text-uppercase;
+        @extend .h5;
+    }
+
+    .textwidget{
+        font-size: $font-size-sm;
+        color: lighten($secondary, 20%);
+    }
+}

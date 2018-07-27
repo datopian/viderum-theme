@@ -16,8 +16,13 @@
     margin-bottom: 0;
 }
 
+.navbar-toggler{
+    @extend .btn-outline-secondary;
+    @extend .ml-auto;
+}
+
 .custom-header{
-    .container{
+    .container-fluid{
         position: relative;
     }
 }
@@ -34,6 +39,9 @@
 
 .custom-header-icon{
     position: absolute;
+    top: auto;
+    bottom: auto;
+    margin: auto;
     img{
         max-width: 100%;
         height: auto;
@@ -47,7 +55,7 @@
 }
 
 .page-title{
-    font-size: $h3-font-size*2;
+    font-size: $h1-font-size*1.5;
     margin-bottom: 0;
 }
 
@@ -70,9 +78,22 @@
 .custom-logo{
     width: auto;
     max-height: $logo-height;
-    margin-right: $spacer*3;
 }
 
 .btn-hero{
     margin-top: $spacer;
+}
+
+.page-header-avatar{
+    @extend .d-flex;
+    @extend .align-items-center;
+    
+    .avatar{
+        @extend .mr-5;
+    }
+}
+
+.avatar{
+    border-radius: 50%;
+    box-shadow: 0 0 0 $spacer/2 $white;
 }

@@ -1,0 +1,34 @@
+@include media-breakpoint-up(md) {
+    .main-navbar{
+
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .sub-menu{
+        margin-left: $spacer;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .main-navbar{
+        .sub-menu{
+            display: none;
+        }
+        .menu-item-has-children{
+            &:hover{
+                .sub-menu{
+                    z-index: 999;
+                    position: absolute;
+                    top: 100%;
+                    padding-left: 0;
+                    display: block;
+                }
+                &:before{
+                    color: currentColor;
+
+                }
+            }
+        }
+    }
+}

@@ -2,7 +2,8 @@
     @extend .d-flex;
     @extend .justify-content-between;
 
-    .container{
+    .services-border{
+        @extend .pb-3;
         border-bottom: $hr-border-width*2 solid $hr-border-color;
     }
 

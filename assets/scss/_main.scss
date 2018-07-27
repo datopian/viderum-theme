@@ -4,13 +4,13 @@
     word-break: break-word;
 }
 
-.widget-page{
-    margin-bottom: $spacer*2;
-}
-
+.blog,
+.search,
 .archive{
     .hentry{
-        margin-bottom: $spacer*5;
+        &:not(:last-child){
+            margin-bottom: $spacer*4;
+        }
     }
     .post-thumbnail{
         margin: $spacer 0;
@@ -39,4 +39,8 @@ table{
 
 .breadcrumb{
     margin-bottom: 0;
+}
+
+.screen-reader-text{
+    @extend .sr-only;
 }

@@ -9,18 +9,4 @@
         @extend .flex-wrap;
         @extend .justify-content-between;
     }
-
-    .widget{
-        margin-top: $spacer;
-        margin-bottom: $spacer;
-    }
-
-    .widgettitle{
-        @extend .text-uppercase;
-        @extend .h5;
-    }
-    
-    .textwidget{
-        color: lighten($secondary, 20%);
-    }
 }
