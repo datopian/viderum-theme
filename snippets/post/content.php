@@ -1,8 +1,4 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php if ( is_sticky() ) : ?>
-        <span class="material-icons">pin_drop</span>
-    <?php endif; ?>
-
     <?php if ( is_home() || is_archive() || is_search() ) : ?>
         <header class="entry-header">
             <?php
@@ -29,7 +25,7 @@
 
     <?php
 
-    if ( 'post' === get_post_type() ) {
+    if ( get_post_type() ) {
         echo '<div class="entry-meta">';
         if ( is_single() ) {
             viderum_posted_on();
