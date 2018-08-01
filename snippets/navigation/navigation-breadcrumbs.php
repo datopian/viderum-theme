@@ -79,7 +79,7 @@ if ( !is_front_page() ) {
             endif;
         endif;
     } elseif ( is_post_type_archive() ) {
-        breadcrumb_item( false, post_type_archive_title( false ), 'span' );
+        breadcrumb_item( false, post_type_archive_title( '', false ), 'span' );
     } elseif ( is_archive() && is_tax() && !is_category() && !is_tag() ) {
 
         // If post is a custom post type
@@ -99,7 +99,7 @@ if ( !is_front_page() ) {
 
         // If it is a custom post type display name and link
         if ( 'post' !== $post_type ) {
-            breadcrumb_item( get_post_type_archive_link( $post_type ), get_post_type_object( $post_type )->labels->name, 'span' );
+            breadcrumb_item( get_post_type_archive_link( $post_type ), get_post_type_object( $post_type )->labels->name );
         } else {
             // tuka e problemot
             if ( get_option( 'page_for_posts' ) ) :
