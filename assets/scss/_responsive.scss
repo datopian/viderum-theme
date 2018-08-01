@@ -1,10 +1,10 @@
 @include media-breakpoint-up(md) {
-    .main-navbar{
-
-    }
 }
 
 @include media-breakpoint-down(md) {
+    .custom-header-media-default{
+        background-size: contain !important;
+    }
     .sub-menu{
         margin-left: $spacer;
     }
