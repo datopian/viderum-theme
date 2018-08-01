@@ -37,6 +37,17 @@
     padding: $spacer*4 0;
 }
 
+.custom-header-media-default{
+    padding: 0;
+    .page-header{
+        color: $body-color;
+    }
+
+    .page-title{
+        margin-bottom: $spacer*2;
+    }
+}
+
 .custom-header-icon{
     position: absolute;
     top: auto;
@@ -55,7 +66,7 @@
 }
 
 .page-title{
-    @extend .text-truncate;
+    word-wrap: break-word;
     font-size: $h1-font-size*1.5;
     margin-bottom: 0;
 }
@@ -88,7 +99,7 @@
 .page-header-avatar{
     @extend .d-flex;
     @extend .align-items-center;
-    
+
     .avatar{
         @extend .mr-5;
     }
