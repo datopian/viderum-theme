@@ -55,6 +55,7 @@
 }
 
 .page-title{
+    @extend .text-truncate;
     font-size: $h1-font-size*1.5;
     margin-bottom: 0;
 }
@@ -95,5 +96,5 @@
 
 .avatar{
     border-radius: 50%;
-    box-shadow: 0 0 0 $spacer/2 $white;
+    box-shadow: 0 0 0 $spacer/3 $white;
 }
