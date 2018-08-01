@@ -27,7 +27,7 @@ if ( have_posts() ):
 
                     ?>
                 </div>
-                <div class="col-lg-4 offset-lg-1">
+                <div class="col-lg-4 offset-lg-1 sidebar">
                     <?php
 
                     if ( is_page() ):
