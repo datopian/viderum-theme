@@ -9,4 +9,28 @@
         @extend .flex-wrap;
         @extend .justify-content-between;
     }
+    
+    .menu{
+        @extend .nav;
+    }
+    
+    .menu-item{
+        @extend .nav-item;
+        
+        a{
+            @extend .btn;
+            @extend .text-light;
+            @extend .nav-link;
+        }
+    }
+    
+    .sub-menu{
+        display: none;
+    }
+    
+    .widgets-wrap{
+        @extend .d-flex;
+        @extend .flex-wrap;
+        @extend .justify-content-between;
+    }
 }
