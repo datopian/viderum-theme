@@ -11,6 +11,7 @@
  */
 
 get_template_part( '/inc/departments' );
+get_template_part( '/inc/case-studies' );
 get_template_part( '/inc/template-tags' );
 
 /*
