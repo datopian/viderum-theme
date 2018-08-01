@@ -23,6 +23,16 @@ get_template_part( '/snippets/widgets/class', 'service' );
 function viderum_setup() {
 
     /*
+     * Define constants
+     */
+    define( 'DEFAULT_HEADER_IMAGE', get_stylesheet_directory_uri() . '/assets/img/viderum-hero.jpg' );
+
+    /*
+     *  Remove WordPress version meta tag
+     */
+    add_filter( 'the_generator', '__return_false' );
+
+    /*
      * Make theme available for translation.
      */
     load_theme_textdomain( 'viderum' );
@@ -53,6 +63,16 @@ function viderum_setup() {
         'footer' => __( 'Footer Navigation', 'viderum' ),
         'social' => __( 'Social Links Menu', 'viderum' ),
     ) );
+
+    register_default_headers(
+            array(
+                'viderum' => array(
+                    'url' => DEFAULT_HEADER_IMAGE,
+                    'thumbnail_url' => DEFAULT_HEADER_IMAGE,
+                    'description' => __( 'The default hero image of Viderum', 'viderum' ),
+                ),
+            )
+    );
 
     /*
      * Switch default core markup for search form, comment form, and comments
