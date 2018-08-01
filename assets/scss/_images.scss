@@ -5,3 +5,9 @@
         height: auto;
     }
 }
+
+.wp-caption-text{
+    @extend .text-muted;
+    font-size: $font-size-sm;
+    margin: $spacer/2 $spacer;
+}
