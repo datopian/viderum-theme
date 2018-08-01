@@ -1,7 +1,7 @@
 </main>
 <footer class="site-footer bg-dark">
     <div class="container-fluid">
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-8 offset-lg-2 widgets-wrap">
         <?php get_template_part( '/snippets/sidebars/sidebar', 'footer' ); ?>
         </div>
     </div>
