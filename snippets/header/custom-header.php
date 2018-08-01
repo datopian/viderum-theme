@@ -23,7 +23,7 @@ endif;
                     <header class="page-header col-lg-8 <?php echo esc_attr( $page_header_class ); ?>">
                         <?php
 
-                        if ( is_single() || is_author() ):
+                        if ( is_singular( array( 'post' ) ) || is_author() ):
                             viderum_author_avatar( get_post_field( 'post_author', get_the_ID() ) );
                         endif;
 
@@ -38,12 +38,14 @@ endif;
                             <?php if ( isset( $theme_settings[ 'hero_link' ] ) ): ?>
                                 <a href="<?php echo the_permalink( $theme_settings[ 'hero_link' ] ) ?>" class="btn btn-lg btn-primary btn-hero"><?php echo __( 'More about', 'viderum' ) . ' ' . get_the_title( $theme_settings[ 'hero_link' ] ); ?></a>
                             <?php endif; ?>    
+                        <?php elseif ( is_author() ): ?>
+                            <h1 class="page-title"><?php _e( 'Archive', 'viderum' ); ?> : <span class="text-secondary"><?php echo esc_html( get_the_author_meta( 'display_name', get_queried_object_id() ) ); ?></span></h1>
+                        <?php elseif ( is_post_type_archive() ): ?>
+                            <h1 class="page-title"><?php _e( 'Archive', 'viderum' ); ?> : <span class="text-secondary"><?php post_type_archive_title(); ?></span></h1>
                         <?php elseif ( is_archive() ): ?>
                             <h1 class="page-title"><?php _e( 'Archive', 'viderum' ); ?></h1>
                         <?php elseif ( is_search() ): ?>
                             <h1 class="page-title"><?php _e( 'Search', 'viderum' ); ?> : <span class="text-secondary"><?php echo get_search_query(); ?></span></h1>
-                        <?php elseif ( is_post_type_archive() ): ?>
-                            <h1 class="page-title"><?php post_type_archive_title(); ?></h1>
                         <?php else: ?>
                             <h1 class="page-title"><?php single_post_title(); ?></h1>
                         <?php endif; ?>
