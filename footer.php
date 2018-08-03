@@ -2,7 +2,7 @@
 <?php
 
 // Show Action Block widget section on all static pages
-if ( is_page() ) :
+if ( is_page() && !is_front_page() ) :
     get_template_part( 'snippets/sidebars/sidebar', 'action-block' );
 endif;
 
