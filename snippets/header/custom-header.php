@@ -19,7 +19,7 @@ if ( $case_study_post_type == get_post_type() ):
 endif;
 
 if ( is_front_page() || (!is_post_type_archive( $case_study_post_type ) && $case_study_post_type == get_post_type()) ):
-    if ( has_post_thumbnail() ):
+    if ( get_header_image() ):
         $page_header_background_style = 'style="background: url(' . $page_header_background . ') center bottom no-repeat; background-size: cover;"';
     endif;
 endif;
