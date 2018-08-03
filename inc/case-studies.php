@@ -36,7 +36,6 @@ function register_case_studies() {
         'query_var' => true,
         'menu_position' => 20,
         'has_archive' => true,
-        'capability_type' => 'post',
         'menu_icon' => 'dashicons-book',
         'rewrite' => array(
             'slug' => 'case-study'
