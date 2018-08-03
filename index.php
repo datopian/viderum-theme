@@ -22,7 +22,7 @@ if ( have_posts() ):
                         endif;
 
                     endwhile;
-                    
+
                     get_template_part( '/snippets/navigation/navigation', 'pagination' );
 
                     ?>
@@ -32,6 +32,8 @@ if ( have_posts() ):
 
                     if ( is_page() ):
                         get_template_part( '/snippets/sidebars/sidebar', 'page' );
+                    elseif ( is_singular( 'case-study' ) || is_post_type_archive( 'case-study' ) ):
+                        get_template_part( '/snippets/sidebars/sidebar', 'case-study' );
                     else:
                         get_template_part( 'sidebar' );
                     endif;

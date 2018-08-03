@@ -12,12 +12,14 @@
 
 get_template_part( '/inc/departments' );
 get_template_part( '/inc/case-studies' );
+get_template_part( '/inc/features' );
 get_template_part( '/inc/template-tags' );
 
 /*
- * Initialize Service widget
+ * Initialize widgets
  */
 get_template_part( '/snippets/widgets/class', 'service' );
+get_template_part( '/snippets/widgets/class', 'action-block' );
 
 // Initialize the Viderum theme
 function viderum_setup() {
@@ -201,6 +203,26 @@ function viderum_widgets_init() {
 
     register_sidebar(
             array(
+                'name' => __( 'Case Studies Sidebar', 'viderum' ),
+                'description' => __( 'Reserved for widgets shown on all case studies.', 'viderum' ),
+                'id' => 'sidebar-case-study',
+                'before_widget' => '<div class="widget widget-case-study">',
+                'after_widget' => '</div>',
+            )
+    );
+
+    register_sidebar(
+            array(
+                'name' => __( 'Action Block Sidebar', 'viderum' ),
+                'description' => __( 'Reserved for an Action Block widget shown on all static pages and the home page.', 'viderum' ),
+                'id' => 'sidebar-action-block',
+                'before_widget' => '<div class="widget widget-action-block">',
+                'after_widget' => '</div>',
+            )
+    );
+
+    register_sidebar(
+            array(
                 'name' => __( 'Footer Sidebar', 'viderum' ),
                 'description' => __( 'Reserved for widgets shown in the footer section of the theme.', 'viderum' ),
                 'id' => 'sidebar-footer',
@@ -233,6 +255,10 @@ function viderum_widgets_init() {
     // Initialize Service widget
     if ( class_exists( 'Service' ) ) :
         register_widget( 'Service' );
+    endif;
+
+    if ( class_exists( 'Action_Block' ) ) :
+        register_widget( 'Action_Block' );
     endif;
 
 }

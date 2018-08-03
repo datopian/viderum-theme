@@ -25,7 +25,7 @@
 
     <?php
 
-    if ( get_post_type() ) {
+    if ( 'post' == get_post_type() ) {
         echo '<div class="entry-meta">';
         if ( is_single() ) {
             viderum_posted_on();

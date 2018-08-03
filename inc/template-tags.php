@@ -47,8 +47,11 @@ function viderum_edit_link() {
  * Print Read more link
  */
 
-function viderum_read_more_button() {
-    printf( '<a href="%1$s" class="btn btn-secondary">%2$s</a>', get_permalink(), __( 'Read more', 'viderum' ) );
+function viderum_read_more_button($btn_type = 'btn-secondary', $text = '') {
+    if ( ! $text ):
+        $text = __( 'Read more', 'viderum' );
+    endif;
+    printf( '<a href="%1$s" class="btn %3$s" rel="bookmark">%2$s</a>', get_permalink(), $text, $btn_type );
 
 }
 

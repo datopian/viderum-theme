@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Initialize and support Case Study post type
+ * Initialize and support Features post type
  *
  * @link https://github.com/ViderumGlobal/viderum-theme
  *
@@ -10,22 +10,22 @@
  */
 
 /*
- * Register Case Study post type
+ * Register Feature post type
  */
 
-function register_case_studies() {
+function register_features() {
     $labels = array(
-        'name' => _x( 'Case Studies', 'taxonomy general name', 'viderum' ),
-        'singular_name' => _x( 'Case Study', 'taxonomy singular name', 'viderum' ),
-        'search_items' => __( 'Search Case Studies', 'viderum' ),
-        'all_items' => __( 'All Case Studies', 'viderum' ),
-        'parent_item' => __( 'Parent Case Study', 'viderum' ),
-        'parent_item_colon' => __( 'Parent Case Study:', 'viderum' ),
-        'edit_item' => __( 'Edit Case Study', 'viderum' ),
-        'update_item' => __( 'Update Case Study', 'viderum' ),
-        'add_new_item' => __( 'Add New Case Study', 'viderum' ),
-        'new_item_name' => __( 'New Case Study Name', 'viderum' ),
-        'menu_name' => __( 'Case Studies', 'viderum' ),
+        'name' => _x( 'Features', 'taxonomy general name', 'viderum' ),
+        'singular_name' => _x( 'Feature', 'taxonomy singular name', 'viderum' ),
+        'search_items' => __( 'Search Feature', 'viderum' ),
+        'all_items' => __( 'All Features', 'viderum' ),
+        'parent_item' => __( 'Parent Feature', 'viderum' ),
+        'parent_item_colon' => __( 'Parent Feature:', 'viderum' ),
+        'edit_item' => __( 'Edit Feature', 'viderum' ),
+        'update_item' => __( 'Update Feature', 'viderum' ),
+        'add_new_item' => __( 'Add New Feature', 'viderum' ),
+        'new_item_name' => __( 'New Feature Name', 'viderum' ),
+        'menu_name' => __( 'Features', 'viderum' ),
     );
 
     $args = array(
@@ -37,24 +37,24 @@ function register_case_studies() {
         'menu_position' => 20,
         'has_archive' => true,
         'capability_type' => 'post',
-        'menu_icon' => 'dashicons-book',
+        'menu_icon' => 'dashicons-list-view',
         'rewrite' => array(
-            'slug' => 'case-study'
+            'slug' => 'feature'
         ),
         'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'revisions' )
     );
 
-    register_post_type( 'case-study', $args );
+    register_post_type( 'feature', $args );
 
 }
 
-add_action( 'init', 'register_case_studies' );
+add_action( 'init', 'register_features' );
 
 /*
- * Register Case Study Category taxonomy
+ * Register Feature Category taxonomy
  */
 
-function register_case_study_categories() {
+function register_feature_categories() {
     $labels = array(
         'name' => _x( 'Categories', 'taxonomy general name', 'viderum' ),
         'singular_name' => _x( 'Category', 'taxonomy singular name', 'viderum' ),
@@ -78,22 +78,22 @@ function register_case_study_categories() {
         'show_tagcloud' => true,
         'query_var' => true,
         'rewrite' => array(
-            'slug' => 'case-study-category',
+            'slug' => 'feature-category',
             'hierarchical' => true
         )
     );
 
-    register_taxonomy( 'case_study_category', 'case-study', $args );
+    register_taxonomy( 'feature_category', 'feature', $args );
 
 }
 
-add_action( 'init', 'register_case_study_categories' );
+add_action( 'init', 'register_feature_categories' );
 
 /*
- * Register Case Study Tag taxonomy
+ * Register Feature Tag taxonomy
  */
 
-function register_case_study_tags() {
+function register_feature_tags() {
     $labels = array(
         'name' => _x( 'Tags', 'taxonomy general name', 'viderum' ),
         'singular_name' => _x( 'Tag', 'taxonomy singular name', 'viderum' ),
@@ -118,8 +118,8 @@ function register_case_study_tags() {
         )
     );
 
-    register_taxonomy( 'case_study_tag', 'case-study', $args );
+    register_taxonomy( 'feature_tag', 'feature', $args );
 
 }
 
-add_action( 'init', 'register_case_study_tags' );
+add_action( 'init', 'register_feature_tags' );
