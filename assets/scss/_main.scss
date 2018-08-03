@@ -8,7 +8,8 @@
 .search,
 .archive{
     .post,
-    .page{
+    .page,
+    .feature{
         &:not(:last-child){
             margin-bottom: $spacer*4;
         }
