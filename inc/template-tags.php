@@ -48,7 +48,7 @@ function viderum_edit_link() {
  */
 
 function viderum_read_more_button($btn_type = 'btn-secondary', $text = '') {
-    if ( ! $text ):
+    if ( !$text ):
         $text = __( 'Read more', 'viderum' );
     endif;
     printf( '<a href="%1$s" class="btn %3$s" rel="bookmark">%2$s</a>', get_permalink(), $text, $btn_type );
@@ -107,6 +107,35 @@ function viderum_author_avatar($author = false, $size = 112, $display = true) {
         echo wp_kses_post( $print );
     else :
         return wp_kses_post( $print );
+    endif;
+
+}
+
+function viderum_content_type_navigation($post_type = 'case-study') {
+
+    $active = 'active';
+    $posts = get_posts(
+            array(
+                'post_type' => $post_type,
+            ) );
+
+    if ( $posts ):
+
+        ?>
+        <div class="widget widget-post-type-nav">
+            <h2 class="widgettitle"><?php echo get_post_type_object( $post_type )->labels->name; ?></h2>
+            <div class="list-group">
+                <?php
+
+                foreach ( $posts as $post ):
+                    printf( '<a href="%1$s" class="list-group-item list-group-item-action %3$s">%2$s</a>', get_permalink( $post->ID ), get_the_title( $post->ID ), ( $post->ID == get_the_ID() ? $active : '' ) );
+                endforeach;
+
+                ?>
+            </div>
+        </div>
+        <?php
+
     endif;
 
 }
