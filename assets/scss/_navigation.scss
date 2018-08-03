@@ -93,7 +93,7 @@
 
 .main-menu{
     margin-left: $spacer*3;
-    .menu-item{
+    > .menu-item{
         margin: auto $spacer/4;
     }
 }
