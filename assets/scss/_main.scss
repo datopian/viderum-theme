@@ -36,9 +36,8 @@
 }
 
 .hentry-child{
-
-    margin-top: $spacer*5;
-    margin-bottom: $spacer*5;
+    margin-top: $spacer*4;
+    margin-bottom: $spacer*4;
     @extend .row;
 
     .wp-post-image{
@@ -46,18 +45,13 @@
         max-height: $hentry-child-post-thumbnail-size;
     }
     .post-thumbnail{
-        @extend .col-lg-2;
+        @extend .col-lg-3;
         @extend .d-flex;
         @extend .align-items-center;
         @extend .justify-content-center;
     }
     .entry-wrap{
-        @extend .col-lg-10;
-    }
-    &:nth-child(odd){
-        .post-thumbnail{
-            @extend .order-2;
-        }
+        @extend .col-lg-9;
     }
 }
 
