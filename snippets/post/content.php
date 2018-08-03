@@ -15,7 +15,7 @@
         </header><!-- .entry-header -->
     <?php endif; ?>
 
-    <?php if ( '' !== get_the_post_thumbnail() && !is_single() ) : ?>
+    <?php if ( has_post_thumbnail() && !is_singular( array( 'post', 'case-study' ) ) ) : ?>
         <div class="post-thumbnail">
             <a href="<?php the_permalink(); ?>">
                 <?php the_post_thumbnail(); ?>
