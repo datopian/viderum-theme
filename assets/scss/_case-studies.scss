@@ -1,0 +1,24 @@
+.case-studies{
+    margin: $spacer*3 auto;
+    .title{
+        padding: $spacer*2;
+        @extend .display-4;
+        @extend .text-center;
+    }
+}
+
+.single-case-study{
+    .page-header{
+        @extend .flex-column;
+        @extend .align-items-start;
+    }
+    .entry-content{
+        :first-child{
+            @extend .lead;
+        }
+    }
+}
+
+.type-case-study{
+    margin-bottom: $spacer*2;
+}

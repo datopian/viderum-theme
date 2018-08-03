@@ -1,0 +1,53 @@
+.action-block {
+    @extend .text-center;
+    color: $body-bg;
+    background-color: $primary;
+    padding: $spacer*4;
+
+    .list-wide {
+        margin-bottom: 0;
+    }
+
+    .menu {
+        @extend .list-inline;
+
+        li{
+            padding: 0;
+        }
+
+        a {
+            color: inherit;
+        }
+    }
+
+    .menu-item {
+        margin-top: $grid-gutter-width / 2;
+
+        &:first-child {
+            a {
+                @extend .btn;
+                @extend .btn-lg;
+                @extend .btn-outline-light;
+            }
+        }
+
+        &:not(first-child) {
+            a {
+                @extend .btn;
+                @extend .btn-outline-primary;
+            }
+        }
+    }
+
+    .textwidget {
+        * :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .widgettitle {
+        color: $body-bg;
+        font-size: $h4-font-size*2;
+        margin-bottom: $spacer*2 auto;
+    }
+}

@@ -9,6 +9,10 @@
         @extend .h5;
         margin-bottom: $spacer;
     }
+    ul,
+    ol{
+        @extend .mb-0;
+    }
 }
 
 .widget{

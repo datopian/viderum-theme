@@ -27,16 +27,25 @@
 
         &:hover{
             a{
-                color: $white;
-                background-color: $gray-600;
+                @extend .btn-secondary;
+                @extend .text-light;
             }
         }
 
-        &.current_page_item{
-            > a{
-                color: $white;
-                background-color: $secondary;
-            }
+    }
+
+    .current_page_item{
+        > a{
+            @extend .btn-secondary;
+            @extend .text-light;
+        }
+    }
+
+    .current-menu-item,
+    .current-menu-parent{
+        > a{
+            @extend .btn-secondary;
+            @extend .text-light;
         }
     }
 
@@ -52,6 +61,14 @@
                 text-align: left;
             }
         }
+
+        .current_page_item{
+            > a{
+                @extend .btn-light;
+                @extend .text-dark;
+            }
+        }
+
         > a{
             &:before{
                 @include material-icon('\e313');

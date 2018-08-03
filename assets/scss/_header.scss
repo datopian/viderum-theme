@@ -63,6 +63,9 @@
     position: relative;
     color: $white;
     z-index: 1;
+    .lead{
+        @extend .mb-0;
+    }
 }
 
 .page-title{
