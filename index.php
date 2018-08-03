@@ -32,8 +32,8 @@ if ( have_posts() ):
 
                     if ( is_page() ):
                         get_template_part( '/snippets/sidebars/sidebar', 'page' );
-                    elseif ( is_singular( 'case-study' ) || is_post_type_archive( 'case-study' ) ):
-                        get_template_part( '/snippets/sidebars/sidebar', 'case-study' );
+                    elseif ( is_singular( get_post_type() ) || is_post_type_archive( get_post_type() ) ):
+                        get_template_part( '/snippets/sidebars/sidebar', get_post_type() );
                     else:
                         get_template_part( 'sidebar' );
                     endif;
