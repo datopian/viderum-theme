@@ -117,6 +117,7 @@ function viderum_content_type_navigation($post_type = 'case-study') {
     $posts = get_posts(
             array(
                 'post_type' => $post_type,
+                'nopaging' => 1
             ) );
 
     if ( $posts ):
