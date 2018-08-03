@@ -1,4 +1,11 @@
 @include media-breakpoint-up(md) {
+    .hentry-child{
+        &:nth-child(odd){
+            .post-thumbnail{
+                order: 2;
+            }
+        }
+    }
 }
 
 @include media-breakpoint-down(md) {
