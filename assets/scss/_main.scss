@@ -35,6 +35,32 @@
     }
 }
 
+.hentry-child{
+
+    margin-top: $spacer*5;
+    margin-bottom: $spacer*5;
+    @extend .row;
+
+    .wp-post-image{
+        max-width: 100%;
+        max-height: $hentry-child-post-thumbnail-size;
+    }
+    .post-thumbnail{
+        @extend .col-lg-2;
+        @extend .d-flex;
+        @extend .align-items-center;
+        @extend .justify-content-center;
+    }
+    .entry-wrap{
+        @extend .col-lg-10;
+    }
+    &:nth-child(odd){
+        .post-thumbnail{
+            @extend .order-2;
+        }
+    }
+}
+
 table{
     @extend .table;
 }
