@@ -1,10 +1,10 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'col-lg-6' ); ?>>
     <div class="row align-items-center">
-        <?php if ( has_post_thumbnail() ): ?>
-            <div class="col-lg-4">
+        <div class="col-lg-4">
+            <?php if ( has_post_thumbnail() ): ?>
                 <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark"><img class="img-thumbnail card-img-top" src="<?php echo esc_attr( the_post_thumbnail_url() ); ?>" alt="<?php the_title(); ?>"></a>
-            </div>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
         <div class="col-lg-8">
             <?php the_title( '<h2 class="card-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
             <p class="card-text">
