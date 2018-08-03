@@ -51,6 +51,11 @@ function viderum_setup() {
     add_theme_support( 'title-tag' );
 
     /*
+     * Add excerpt support to pages
+     */
+    add_post_type_support( 'page', 'excerpt' );
+
+    /*
      * Enable support for Post Thumbnails on posts and pages.
      */
     add_theme_support( 'post-thumbnails' );
