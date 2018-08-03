@@ -93,6 +93,9 @@
 
 .main-menu{
     margin-left: $spacer*3;
+    .menu-item{
+        margin: auto $spacer/4;
+    }
 }
 
 .wrap-breadcrumbs{
