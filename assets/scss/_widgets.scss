@@ -57,3 +57,14 @@
         color: lighten($secondary, 20%);
     }
 }
+
+.sidebar{
+    .widget{
+        ul{
+            @extend .list-group;
+        }
+        li{
+            @extend .list-group-item;
+        }
+    }
+}
