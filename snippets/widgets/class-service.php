@@ -75,7 +75,7 @@ class Service extends WP_Widget {
         ?>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'service_icon' ) ); ?>"><?php esc_attr_e( 'Icon:', 'viderum' ); ?></label>
-            <input type="number" class="custom-image-value widefat" id="<?php echo esc_attr( $this->get_field_id( 'service_icon' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'service_icon' ) ); ?>" type="text" value="<?php echo esc_attr( $service_icon ); ?>">
+            <input type="number" class="hidden custom-image-value widefat" id="<?php echo esc_attr( $this->get_field_id( 'service_icon' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'service_icon' ) ); ?>" type="text" value="<?php echo esc_attr( $service_icon ); ?>">
             <?php viderum_custom_image_placeholder( $service_icon ); ?>
         </p>
         <p>
