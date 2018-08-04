@@ -91,6 +91,23 @@
     }
 }
 
+.hero-menu{
+    @extend .mt-4;
+    @extend .list-inline;
+    li{
+        @extend .list-inline-item;
+        &:first-child{
+            a{
+                @extend .btn-primary;        
+            }
+        }
+    }
+    a{
+        @extend .btn;
+        @extend .btn-lg;
+        @extend .btn-outline-primary;
+    }
+}
 .main-menu{
     margin-left: $spacer*3;
     > .menu-item{
