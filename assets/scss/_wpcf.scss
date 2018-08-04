@@ -1,0 +1,22 @@
+.wpcf7-submit{
+    @extend .btn;
+    @extend .btn-primary;
+}
+
+.wpcf7-form{
+    .wpcf7-validation-errors{
+        @extend .alert;
+        @extend .alert-warning;
+    }
+
+    .wpcf7-not-valid-tip{
+        @extend .alert;
+        @extend .alert-danger;
+    }
+    .wpcf7-list-item{
+        margin: auto;
+    }
+    .wpcf7-acceptance{
+        font-size: $font-size-sm;
+    }
+}
