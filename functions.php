@@ -69,6 +69,7 @@ function viderum_setup() {
         'call_to_action' => __( 'Call to Action Navigation', 'viderum' ),
         'footer' => __( 'Footer Navigation', 'viderum' ),
         'social' => __( 'Social Links Menu', 'viderum' ),
+        'hero' => __( 'Hero Menu', 'viderum' ),
     ) );
 
     register_default_headers(
