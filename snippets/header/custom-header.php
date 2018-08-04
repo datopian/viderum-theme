@@ -18,6 +18,10 @@ if ( in_array( get_post_type(), array( $case_study_post_type, 'post' ) ) ):
     $page_header_background = get_the_post_thumbnail_url( get_the_ID() );
 endif;
 
+if ( is_singular( 'feature' ) ):
+    $page_header_background = '';
+endif;
+
 if ( is_front_page() || is_single() || (!is_post_type_archive( $case_study_post_type ) && $case_study_post_type == get_post_type()) ):
     if ( $page_header_background ):
         $page_header_background_style = 'style="background: url(' . $page_header_background . ') center bottom no-repeat; background-size: cover;"';
@@ -46,18 +50,32 @@ endif;
                             viderum_author_avatar( get_post_field( 'post_author', get_the_ID() ) );
                         endif;
 
-                        ?>
-                        <?php if ( is_front_page() ): ?>
-                            <?php if ( isset( $theme_settings[ 'hero_title' ] ) ): ?>
-                                <h1 class="page-title"><?php echo esc_html( $theme_settings[ 'hero_title' ] ); ?></h1>
-                            <?php endif; ?>
-                            <?php if ( isset( $theme_settings[ 'hero_description' ] ) ): ?>
-                                <p class="lead"><?php echo esc_html( $theme_settings[ 'hero_description' ] ); ?></p>
-                            <?php endif; ?>
-                            <?php if ( isset( $theme_settings[ 'hero_link' ] ) ): ?>
-                                <a href="<?php echo the_permalink( $theme_settings[ 'hero_link' ] ) ?>" class="btn btn-lg btn-primary btn-hero"><?php echo __( 'More about', 'viderum' ) . ' ' . get_the_title( $theme_settings[ 'hero_link' ] ); ?></a>
-                            <?php endif; ?>    
-                        <?php elseif ( is_author() ): ?>
+                        if ( is_front_page() ):
+
+                            the_title( '<h1 class="page-title">', '</h1>' );
+
+                            if ( have_posts() ):
+                                while ( have_posts() ):
+                                    the_post();
+
+                                    ?>
+                                    <div class="page-content">
+                                        <?php the_content(); ?>
+                                    </div>
+                                    <?php
+
+                                endwhile;
+                            endif;
+
+                            /*
+                             * Make sure other queries on page are not affected.
+                             */
+                            wp_reset_postdata();
+
+                            get_template_part( 'snippets/navigation/navigation', 'hero' );
+                        elseif ( is_author() ):
+
+                            ?>
                             <h1 class="page-title"><?php _e( 'Archive', 'viderum' ); ?>: <span class="text-secondary"><?php echo esc_html( get_the_author_meta( 'display_name', get_queried_object_id() ) ); ?></span></h1>
                         <?php elseif ( is_post_type_archive() ): ?>
                             <h1 class="page-title"><?php post_type_archive_title(); ?></h1>
