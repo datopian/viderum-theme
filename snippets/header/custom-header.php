@@ -83,6 +83,8 @@ endif;
                             <h1 class="page-title"><?php _e( 'Archive', 'viderum' ); ?></h1>
                         <?php elseif ( is_search() ): ?>
                             <h1 class="page-title"><?php _e( 'Search', 'viderum' ); ?>: <?php echo get_search_query(); ?></h1>
+                        <?php elseif ( is_404() ): ?>
+                            <h1 class="page-title"><?php _e( 'Page not found', 'viderum' ); ?></h1>
                         <?php else: ?>
                             <h1 class="page-title"><?php single_post_title(); ?></h1>
                             <?php if ( get_the_excerpt() ): ?>

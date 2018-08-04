@@ -28,6 +28,8 @@ if ( have_posts() ):
     </div>
     <?php
 
+else:
+    get_template_part( 'snippets/post/content', 'none' );
 endif;
 
 get_footer();

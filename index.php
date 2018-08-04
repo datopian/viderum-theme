@@ -16,14 +16,14 @@ if ( have_posts() ):
                         the_post();
 
                         if ( is_page() ):
-                            get_template_part( '/snippets/page/content', 'page' );
+                            get_template_part( 'snippets/page/content', 'page' );
                         else:
-                            get_template_part( '/snippets/post/content' );
+                            get_template_part( 'snippets/post/content' );
                         endif;
 
                     endwhile;
 
-                    get_template_part( '/snippets/navigation/navigation', 'pagination' );
+                    get_template_part( 'snippets/navigation/navigation', 'pagination' );
 
                     ?>
                 </div>
@@ -31,9 +31,9 @@ if ( have_posts() ):
                     <?php
 
                     if ( is_page() ):
-                        get_template_part( '/snippets/sidebars/sidebar', 'page' );
+                        get_template_part( 'snippets/sidebars/sidebar', 'page' );
                     elseif ( is_singular( get_post_type() ) || is_post_type_archive( get_post_type() ) ):
-                        get_template_part( '/snippets/sidebars/sidebar', get_post_type() );
+                        get_template_part( 'snippets/sidebars/sidebar', get_post_type() );
                     else:
                         get_template_part( 'sidebar' );
                     endif;
@@ -45,6 +45,8 @@ if ( have_posts() ):
     </div>
     <?php
 
+else:
+    get_template_part( 'snippets/post/content', 'none' );
 endif;
 
 get_footer();
