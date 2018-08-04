@@ -142,3 +142,25 @@ function viderum_content_type_navigation($post_type = 'case-study') {
     endif;
 
 }
+
+function viderum_custom_image_placeholder($attachment_id, $display = true, $print = '') {
+
+    if ( $attachment_id ) :
+
+        $btn_label_add = __( 'Replace Image', 'viderum' );
+        $btn_label_remove = __( 'Remove Image', 'viderum' );
+        $custom_image_url = esc_url( wp_get_attachment_image_url( $attachment_id ) );
+    else :
+        $btn_label_add = __( 'Upload Image', 'viderum' );
+        $custom_image_url = get_avatar_url( '' );
+    endif;
+
+    if ( $display ) :
+        $print .= sprintf( '<div><a data-media-widget-title="%1$s" href="#" class="custom-image"><img class="current-custom-image" src="%2$s" width="96"></a></div>', $btn_label_add, $custom_image_url );
+        $print .= sprintf( '<button data-media-widget-title="%1$s" type="button" class="button custom-image">%1$s</button>&nbsp;', $btn_label_add );
+        echo wp_kses_post( $print );
+    else :
+        return esc_url( $custom_image_url );
+    endif;
+
+}

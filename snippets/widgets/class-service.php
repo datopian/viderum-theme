@@ -37,6 +37,13 @@ class Service extends WP_Widget {
         echo wp_kses_post( $args[ 'before_widget' ] );
 
         echo '<div class="service-item">';
+        if ( isset( $instance[ 'service_icon' ] ) ) :
+
+            ?>
+            <img class="service-icon" src="<?php echo wp_kses_post( wp_get_attachment_image_url( $instance[ 'service_icon' ] ) ); ?>" alt="icon">
+            <?php
+
+        endif;
         if ( !empty( $instance[ 'title' ] ) ) {
             echo wp_kses_post( $args[ 'before_title' ] ) . wp_kses_post( apply_filters( 'widget_title', $instance[ 'title' ] ) ) . wp_kses_post( $args[ 'after_title' ] );
         }
@@ -58,11 +65,19 @@ class Service extends WP_Widget {
      */
     public function form($instance) {
 
+        wp_enqueue_script( 'keitaro-custom-image', get_stylesheet_directory_uri() . '/assets/js/custom-image.js' );
+
         $title = !empty( $instance[ 'title' ] ) ? $instance[ 'title' ] : '';
         $service_desc = !empty( $instance[ 'service_desc' ] ) ? $instance[ 'service_desc' ] : '';
         $service_link = !empty( $instance[ 'service_link' ] ) ? $instance[ 'service_link' ] : '';
+        $service_icon = !empty( $instance[ 'service_icon' ] ) ? $instance[ 'service_icon' ] : '';
 
         ?>
+        <p>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'service_icon' ) ); ?>"><?php esc_attr_e( 'Icon:', 'viderum' ); ?></label>
+            <input type="number" class="custom-image-value widefat" id="<?php echo esc_attr( $this->get_field_id( 'service_icon' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'service_icon' ) ); ?>" type="text" value="<?php echo esc_attr( $service_icon ); ?>">
+            <?php viderum_custom_image_placeholder( $service_icon ); ?>
+        </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Name:', 'viderum' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
@@ -121,7 +136,8 @@ class Service extends WP_Widget {
 
         $instance[ 'title' ] = (!empty( $new_instance[ 'title' ] ) ) ? strip_tags( $new_instance[ 'title' ] ) : '';
         $instance[ 'service_desc' ] = (!empty( $new_instance[ 'service_desc' ] ) ) ? strip_tags( $new_instance[ 'service_desc' ] ) : '';
-        $instance[ 'service_link' ] = (!empty( $new_instance[ 'service_link' ] ) ) ? strip_tags( $new_instance[ 'service_link' ] ) : '';
+        $instance[ 'service_link' ] = (!empty( $new_instance[ 'service_link' ] ) ) ? strip_tags( $new_instance[ 'service_link' ] ) : 0;
+        $instance[ 'service_icon' ] = (!empty( $new_instance[ 'service_icon' ] ) ) ? strip_tags( $new_instance[ 'service_icon' ] ) : '';
 
         return $instance;
 

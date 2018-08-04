@@ -26,6 +26,12 @@
         min-height: 100%;
     }
 
+    .service-icon{
+        max-width: $hentry-child-post-thumbnail-size/2;
+        max-height: $hentry-child-post-thumbnail-size/2;
+        margin: $spacer*1.5 0;
+    }
+
     .service-description{
         margin: $spacer auto;
     }
