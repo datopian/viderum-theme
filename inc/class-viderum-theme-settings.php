@@ -78,18 +78,6 @@ class Viderum_Theme_Settings {
         );
 
         add_settings_field(
-                'hero_title', __( 'Hero title', 'viderum' ), array( $this, 'hero_title_callback' ), 'viderum-setting-admin', 'setting_section_id'
-        );
-
-        add_settings_field(
-                'hero_description', __( 'Hero description', 'viderum' ), array( $this, 'hero_description_callback' ), 'viderum-setting-admin', 'setting_section_id'
-        );
-
-        add_settings_field(
-                'hero_link', __( 'Hero button link', 'viderum' ), array( $this, 'hero_link_callback' ), 'viderum-setting-admin', 'setting_section_id'
-        );
-
-        add_settings_field(
                 'ga_tracking_id', __( 'Google Analytics Tracking ID', 'viderum' ), array( $this, 'google_analytics_tracking_id_callback' ), 'viderum-setting-admin', 'setting_section_id'
         );
 
@@ -106,18 +94,6 @@ class Viderum_Theme_Settings {
      */
     public function sanitize($input) {
         $new_input = array();
-
-        if ( isset( $input[ 'hero_title' ] ) ) {
-            $new_input[ 'hero_title' ] = sanitize_text_field( $input[ 'hero_title' ] );
-        }
-
-        if ( isset( $input[ 'hero_description' ] ) ) {
-            $new_input[ 'hero_description' ] = sanitize_textarea_field( $input[ 'hero_description' ] );
-        }
-
-        if ( isset( $input[ 'hero_link' ] ) ) {
-            $new_input[ 'hero_link' ] = sanitize_text_field( $input[ 'hero_link' ] );
-        }
 
         if ( isset( $input[ 'ga_tracking_id' ] ) ) {
             $new_input[ 'ga_tracking_id' ] = sanitize_text_field( $input[ 'ga_tracking_id' ] );
@@ -136,57 +112,6 @@ class Viderum_Theme_Settings {
      */
     public function section_description() {
         printf( '<p>%s</p>', esc_html__( 'A list of customizable theme-specific settings', 'viderum' ) );
-
-    }
-
-    /*
-     * Hero title input
-     */
-
-    public function hero_title_callback() {
-        printf(
-                '<input class="large-text" type="text" id="hero_title" name="viderum_settings[hero_title]" value="%s" />', isset( $this->options[ 'hero_title' ] ) ? esc_attr( $this->options[ 'hero_title' ] ) : ''
-        );
-
-    }
-
-    /**
-     * Hero description textarea
-     */
-    public function hero_description_callback() {
-        printf(
-                '<textarea class="large-text" id="hero_description" name="viderum_settings[hero_description]" rows="10">%s</textarea>', isset( $this->options[ 'hero_description' ] ) ? esc_textarea( $this->options[ 'hero_description' ] ) : ''
-        );
-
-    }
-
-    public function hero_link_callback() {
-
-        $wp_pages = get_posts(
-                array(
-                    'post_type' => 'page',
-                    'nopaging' => 1,
-                    'order' => 'ASC',
-                    'orderby' => 'title',
-                )
-        );
-
-        if ( $wp_pages ) :
-
-            ?>
-            <select name="viderum_settings[hero_link]" id="hero_link">
-                <option value="0"><?php esc_html_e( '&mdash; Select &mdash;' ); ?></option>
-                <?php foreach ( $wp_pages as $page ) : ?>
-                    <option value="<?php echo esc_attr( $page->ID ); ?>" <?php selected( $this->options[ 'hero_link' ], $page->ID ); ?>>
-                        <?php echo esc_html( $page->post_title ); ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-            <?php
-
-        else:
-            printf( "<p>%s</p>", __( 'No pages available for selection', 'viderum' ) );
-        endif;
 
     }
 
