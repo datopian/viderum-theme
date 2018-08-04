@@ -78,12 +78,11 @@ endif;
                         if ( has_post_thumbnail() ):
 
                             ?>
-                            <div class="col-lg-4 d-none d-md-block">
+                            <div class="col-lg-4 d-flex justify-content-center align-items-center">
                                 <figure class="custom-header-icon">
                                     <?php the_post_thumbnail(); ?>
                                 </figure>
                             </div>
-
                             <?php
 
                         endif;
