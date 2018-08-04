@@ -14,12 +14,12 @@ if ( !is_front_page() ):
     $grid_class = 'col-lg-8 offset-lg-2';
 endif;
 
-if ( $case_study_post_type == get_post_type() ):
+if ( $case_study_post_type == get_post_type() || 'post' == get_post_type() ):
     $page_header_background = get_the_post_thumbnail_url( get_the_ID() );
 endif;
 
-if ( is_front_page() || (!is_post_type_archive( $case_study_post_type ) && $case_study_post_type == get_post_type()) ):
-    if ( get_header_image() ):
+if ( is_front_page() || is_single() || (!is_post_type_archive( $case_study_post_type ) && $case_study_post_type == get_post_type()) ):
+    if ( get_header_image() && has_post_thumbnail() ):
         $page_header_background_style = 'style="background: url(' . $page_header_background . ') center bottom no-repeat; background-size: cover;"';
     endif;
 endif;
