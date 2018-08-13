@@ -7,4 +7,4 @@ if ( !function_exists( 'pll_register_string' ) ):
     return;
 endif;
 
-pll_register_string( 'viderum_partners_title', 'Our Partners', 'viderum' );
+pll_register_string( 'viderum_read_more', 'Read more', 'viderum' );
