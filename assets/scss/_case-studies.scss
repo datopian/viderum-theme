@@ -17,6 +17,9 @@
     .card{
         min-height: 100%;
     }
+    .card-title + .card-text{
+        min-height: $spacer*5;
+    }
 }
 
 .single-case-study{
