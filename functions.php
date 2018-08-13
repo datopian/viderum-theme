@@ -195,7 +195,7 @@ function viderum_widgets_init() {
                 'name' => __( 'Page Sidebar', 'viderum' ),
                 'description' => __( 'Reserved for widgets shown on all pages.', 'viderum' ),
                 'id' => 'sidebar-page',
-                'before_widget' => '<div class="widget widget-page">',
+                'before_widget' => '<div class="widget widget-page %2$s">',
                 'after_widget' => '</div>',
             )
     );
@@ -205,7 +205,7 @@ function viderum_widgets_init() {
                 'name' => __( 'Post Sidebar', 'viderum' ),
                 'description' => __( 'Reserved for widgets shown on all posts.', 'viderum' ),
                 'id' => 'sidebar-post',
-                'before_widget' => '<div class="widget widget-post">',
+                'before_widget' => '<div class="widget widget-post %2$s">',
                 'after_widget' => '</div>',
             )
     );
@@ -215,7 +215,7 @@ function viderum_widgets_init() {
                 'name' => __( 'Case Studies Sidebar', 'viderum' ),
                 'description' => __( 'Reserved for widgets shown before the Case Studies list on the front page.', 'viderum' ),
                 'id' => 'sidebar-case-studies',
-                'before_widget' => '<div class="widget widget-case-study">',
+                'before_widget' => '<div class="widget widget-case-study %2$s">',
                 'after_widget' => '</div>',
             )
     );
@@ -225,7 +225,7 @@ function viderum_widgets_init() {
                 'name' => __( 'Case Study Sidebar', 'viderum' ),
                 'description' => __( 'Reserved for widgets shown on all case studies.', 'viderum' ),
                 'id' => 'sidebar-case-study',
-                'before_widget' => '<div class="widget widget-case-study">',
+                'before_widget' => '<div class="widget widget-case-study %2$s">',
                 'after_widget' => '</div>',
             )
     );
@@ -235,7 +235,7 @@ function viderum_widgets_init() {
                 'name' => __( 'Action Block Sidebar', 'viderum' ),
                 'description' => __( 'Reserved for an Action Block widget shown on all static pages and the home page.', 'viderum' ),
                 'id' => 'sidebar-action-block',
-                'before_widget' => '<div class="widget widget-action-block">',
+                'before_widget' => '<div class="widget widget-action-block %2$s">',
                 'after_widget' => '</div>',
             )
     );
@@ -245,7 +245,7 @@ function viderum_widgets_init() {
                 'name' => __( 'Footer Sidebar', 'viderum' ),
                 'description' => __( 'Reserved for widgets shown in the footer section of the theme.', 'viderum' ),
                 'id' => 'sidebar-footer',
-                'before_widget' => '<div class="widget widget-footer">',
+                'before_widget' => '<div class="widget widget-footer %2$s">',
                 'after_widget' => '</div>',
             )
     );
@@ -255,7 +255,7 @@ function viderum_widgets_init() {
                 'name' => __( 'Services Sidebar', 'viderum' ),
                 'description' => __( 'Reserved for Service widgets and shown only on the front page.', 'viderum' ),
                 'id' => 'sidebar-services',
-                'before_widget' => '<div class="col-md-6 col-xl-4 widget widget-service">',
+                'before_widget' => '<div class="col-md-6 col-xl-4 widget widget-service %2$s">',
                 'after_widget' => '</div>',
             )
     );
@@ -265,7 +265,7 @@ function viderum_widgets_init() {
                 'name' => __( 'Partners Sidebar', 'viderum' ),
                 'description' => __( 'Reserved for image widgets and shown only on the front page.', 'viderum' ),
                 'id' => 'sidebar-partners',
-                'before_widget' => '<div class="widget widget-partner">',
+                'before_widget' => '<div class="widget widget-partner %2$s">',
                 'after_widget' => '</div>',
             )
     );
