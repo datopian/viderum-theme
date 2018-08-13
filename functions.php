@@ -38,7 +38,7 @@ function viderum_setup() {
      * Make theme available for translation.
      */
     load_theme_textdomain( 'viderum' );
-    
+
     // Register Polylang strings
     get_template_part( '/inc/strings' );
 
@@ -213,6 +213,16 @@ function viderum_widgets_init() {
     register_sidebar(
             array(
                 'name' => __( 'Case Studies Sidebar', 'viderum' ),
+                'description' => __( 'Reserved for widgets shown before the Case Studies list on the front page.', 'viderum' ),
+                'id' => 'sidebar-case-studies',
+                'before_widget' => '<div class="widget widget-case-study">',
+                'after_widget' => '</div>',
+            )
+    );
+
+    register_sidebar(
+            array(
+                'name' => __( 'Case Study Sidebar', 'viderum' ),
                 'description' => __( 'Reserved for widgets shown on all case studies.', 'viderum' ),
                 'id' => 'sidebar-case-study',
                 'before_widget' => '<div class="widget widget-case-study">',
