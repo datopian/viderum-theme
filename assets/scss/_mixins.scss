@@ -1,4 +1,14 @@
 @mixin material-icon($icon) {
-  font-family: "Material Icons";
-  content: $icon;
+    font-family: "Material Icons";
+    content: $icon;
+}
+
+@mixin widget-group-title(){
+    flex-basis: 100%;
+    margin: inherit;
+    .widgettitle{
+        padding: $spacer*2 $spacer*2 $spacer;
+        @extend .display-4;
+        @extend .text-center;
+    }
 }
