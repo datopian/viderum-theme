@@ -5,6 +5,12 @@
         @extend .display-4;
         @extend .text-center;
     }
+
+    .widget-case-study{
+        &:first-child{
+            @include widget-group-title;
+        }
+    }
 }
 
 .single-case-study{
