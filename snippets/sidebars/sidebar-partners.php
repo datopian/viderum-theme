@@ -1,6 +1,7 @@
 <?php
 
 $sidebar_id = 'sidebar-partners';
+$title = (function_exists( 'pll__' ) ? pll__( 'Our Partners' ) : __( 'Our Partners', 'viderum' ) );
 
 if ( is_active_sidebar( $sidebar_id ) ) :
 
@@ -8,7 +9,7 @@ if ( is_active_sidebar( $sidebar_id ) ) :
 
     <div class="container-fluid">
         <section class="partners">
-            <h2 class="title"><?php _e( 'Our Partners' ); ?></h2>
+            <h2 class="title"><?php echo esc_html( $title ); ?></h2>
             <div class="list">
                 <?php dynamic_sidebar( $sidebar_id ); ?>
             </div>

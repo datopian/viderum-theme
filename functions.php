@@ -38,6 +38,9 @@ function viderum_setup() {
      * Make theme available for translation.
      */
     load_theme_textdomain( 'viderum' );
+    
+    // Register Polylang strings
+    get_template_part( '/inc/strings' );
 
     // Load theme settings class
     get_template_part( '/inc/class-viderum-theme-settings' );
