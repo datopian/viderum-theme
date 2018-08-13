@@ -24,10 +24,10 @@
             max-height: $logo-height + $grid-gutter-width;
             width: auto;
         }
-        &:first-child{
+        &.widget_text{
             @include widget-group-title;
         }
-        &:not(:first-child){
+        &.widget_media_image{
             .widgettitle{
                 display: none;
             }
