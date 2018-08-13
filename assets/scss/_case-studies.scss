@@ -19,7 +19,7 @@
         @extend .align-items-start;
     }
     .entry-content{
-        :first-child{
+        p:first-child{
             @extend .lead;
         }
     }
