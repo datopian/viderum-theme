@@ -2,7 +2,7 @@
 
 $args = array(
     'post_type' => 'case-study',
-    'posts_per_page' => 6
+    'posts_per_page' => 3
 );
 
 $case_studies = new WP_Query( $args );
