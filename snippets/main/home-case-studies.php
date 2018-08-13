@@ -12,7 +12,7 @@ if ( $case_studies->have_posts() ):
     ?>
     <div class="container-fluid">
         <section class="col-lg-8 offset-lg-2 case-studies">
-            <h2 class="title"><?php echo esc_html( get_post_type_object( $args[ 'post_type' ] )->labels->name ); ?></h2>
+            <?php get_template_part( '/snippets/sidebars/sidebar', 'case-studies' ); ?>
             <div class="row">
                 <?php
 
