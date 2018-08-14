@@ -17,8 +17,15 @@
     .card{
         min-height: 100%;
     }
-    .card-title + .card-text{
-        min-height: $spacer*5;
+    .card-body{
+        @extend .d-flex;
+        @extend .flex-column;
+        @extend .justify-content-center;
+        @extend .align-items-center;
+        @extend .text-center;
+    }
+    .card-text{
+        margin-bottom: $card-spacer-y;
     }
 }
 
