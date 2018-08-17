@@ -8,6 +8,9 @@
  * @subpackage Viderum
  */
 
+/**
+ * Action Block widget class
+ */
 class Action_Block extends WP_Widget {
 
 	/**
@@ -112,7 +115,7 @@ class Action_Block extends WP_Widget {
 					$url = admin_url( 'nav-menus.php' );
 				}
 
-				// translators: The no-menus-have-been-created notice within the Call to Action widget
+				// translators: The no-menus-have-been-created notice within the Call to Action widget.
 				echo sprintf( esc_html__( 'No menus have been created yet. <a href="%s">Create some</a>.', 'viderum' ), esc_attr( $url ) );
 
 				?>

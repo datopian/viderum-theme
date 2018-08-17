@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Sidebar snippet for Action_Block widgets
  *
@@ -8,22 +7,23 @@
  * @package WordPress
  * @subpackage Viderum
  */
+
 $sidebar_id = 'sidebar-action-block';
 
 if ( is_active_sidebar( $sidebar_id ) ) :
 
-    ?>
+	?>
 
-    <div class="action-block">
-        <ul class="list-inline list-wide">
-            <?php
+	<div class="action-block">
+		<ul class="list-inline list-wide">
+			<?php
 
-            dynamic_sidebar( $sidebar_id );
+			dynamic_sidebar( $sidebar_id );
 
-            ?>
-        </ul>
-    </div>
+			?>
+		</ul>
+	</div>
 
-    <?php
+	<?php
 
 endif;
