@@ -319,7 +319,7 @@ add_action( 'widgets_init', 'viderum_widgets_init' );
 function salesforce_cf7_integration( $cf7 ) {
 	$url = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8';
 
-	if ( ! empty( $cf7->get_posted_data['email'] ) ) {
+	if ( ! empty( $cf7->$posted_data['email'] ) ) {
 
 		$response = wp_safe_remote_post( $url, array(
 			'method' => 'POST',
@@ -328,18 +328,18 @@ function salesforce_cf7_integration( $cf7 ) {
 				'content-type' => 'application/x-www-form-urlencoded',
 			),
 			'body' => array(
-				'oid' => $cf7->get_posted_data['oid'],
-				'lead_source' => $cf7->get_posted_data['lead_source'],
-				'first-name' => $cf7->get_posted_data['first-name'],
-				'last-name' => $cf7->get_posted_data['last-name'],
-				'email' => $cf7->get_posted_data['email'],
-				'company' => $cf7->get_posted_data['company'],
-				'website' => $cf7->get_posted_data['website'],
-				'00N1I00000L0VOe' => $cf7->get_posted_data['00N1I00000L0VOe'],
-				'00N1I00000L0VOj' => $cf7->get_posted_data['00N1I00000L0VOj'],
-				'00N1I00000L0VOo' => $cf7->get_posted_data['00N1I00000L0VOo'],
-				'00N1I00000L0VOt' => $cf7->get_posted_data['00N1I00000L0VOt'],
-				'00N1I00000L0VOy' => $cf7->get_posted_data['00N1I00000L0VOy'],
+				'oid' => $cf7->$posted_data['oid'],
+				'lead_source' => $cf7->$posted_data['lead_source'],
+				'first-name' => $cf7->$posted_data['first-name'],
+				'last-name' => $cf7->$posted_data['last-name'],
+				'email' => $cf7->$posted_data['email'],
+				'company' => $cf7->$posted_data['company'],
+				'website' => $cf7->$posted_data['website'],
+				'00N1I00000L0VOe' => $cf7->$posted_data['00N1I00000L0VOe'],
+				'00N1I00000L0VOj' => $cf7->$posted_data['00N1I00000L0VOj'],
+				'00N1I00000L0VOo' => $cf7->$posted_data['00N1I00000L0VOo'],
+				'00N1I00000L0VOt' => $cf7->$posted_data['00N1I00000L0VOt'],
+				'00N1I00000L0VOy' => $cf7->$posted_data['00N1I00000L0VOy'],
 			),
 			)
 		);
