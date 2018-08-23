@@ -323,11 +323,10 @@ function salesforce_cf7_integration( $cf7 ) {
 
 		$response = wp_remote_post( $url, array(
 			'method' => 'POST',
-			'timeout' => 30,
-			'redirection' => 5,
-			'httpversion' => '1.0',
-			'blocking' => true,
-			'headers' => array(),
+			'timeout' => 15,
+			'headers' => array(
+				'Content-Type' => 'application/x-www-form-urlencoded',
+			),
 			'body' => array(
 				'oid' => $cf7->posted_data['oid'],
 				'lead_source' => $cf7->posted_data['lead_source'],
@@ -342,7 +341,6 @@ function salesforce_cf7_integration( $cf7 ) {
 				'00N1I00000L0VOt' => $cf7->posted_data['00N1I00000L0VOt'],
 				'00N1I00000L0VOy' => $cf7->posted_data['00N1I00000L0VOy'],
 			),
-			'cookies' => array(),
 			)
 		);
 
