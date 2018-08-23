@@ -325,7 +325,7 @@ function salesforce_cf7_integration( $cf7 ) {
 			'method' => 'POST',
 			'timeout' => 15,
 			'headers' => array(
-				'Content-Type' => 'application/x-www-form-urlencoded',
+				'content-type' => 'application/x-www-form-urlencoded',
 			),
 			'body' => array(
 				'oid' => $cf7->posted_data['oid'],
