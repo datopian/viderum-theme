@@ -309,3 +309,47 @@ function viderum_widgets_init() {
 }
 
 add_action( 'widgets_init', 'viderum_widgets_init' );
+
+/**
+ * Integrate Contact Form 7 with SalesForce
+ *
+ * @param [type] $cf7 Contact Form 7 form.
+ * @return void
+ */
+function salesforce_cf7_integration( $cf7 ) {
+	$url = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8';
+
+	if ( ! empty( $cf7->posted_data['email'] ) ) {
+
+		$response = wp_remote_post( $url, array(
+			'method' => 'POST',
+			'timeout' => 30,
+			'redirection' => 5,
+			'httpversion' => '1.0',
+			'blocking' => true,
+			'headers' => array(),
+			'body' => array(
+				'oid' => $cf7->posted_data['oid'],
+				'lead_source' => $cf7->posted_data['lead_source'],
+				'first-name' => $cf7->posted_data['first-name'],
+				'last-name' => $cf7->posted_data['last-name'],
+				'email' => $cf7->posted_data['email'],
+				'company' => $cf7->posted_data['company'],
+				'website' => $cf7->posted_data['website'],
+				'00N1I00000L0VOe' => $cf7->posted_data['00N1I00000L0VOe'],
+				'00N1I00000L0VOj' => $cf7->posted_data['00N1I00000L0VOj'],
+				'00N1I00000L0VOo' => $cf7->posted_data['00N1I00000L0VOo'],
+				'00N1I00000L0VOt' => $cf7->posted_data['00N1I00000L0VOt'],
+				'00N1I00000L0VOy' => $cf7->posted_data['00N1I00000L0VOy'],
+			),
+			'cookies' => array(),
+			)
+		);
+
+		if ( is_wp_error( $response ) ) {
+			new WP_Error( 'sf_error', __( 'Sorry, SalesForce data was not sent because of the following error:', 'viderum' ) . ' ' . $response->get_error_message() );
+		}
+	}
+
+}
+add_action( 'wpcf7_before_send_mail', 'salesforce_cf7_integration' );
