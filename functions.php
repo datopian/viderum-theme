@@ -321,7 +321,7 @@ function salesforce_cf7_integration( $cf7 ) {
 
 	if ( ! empty( $cf7->posted_data['email'] ) ) {
 
-		$response = wp_remote_post( $url, array(
+		$response = wp_safe_remote_post( $url, array(
 			'method' => 'POST',
 			'timeout' => 15,
 			'headers' => array(
