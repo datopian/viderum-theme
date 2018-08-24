@@ -34,18 +34,18 @@ get_template_part( '/snippets/widgets/class', 'action-block' );
  */
 function viderum_setup() {
 	/*
-     * Define constants
-     */
+	 * Define constants
+	 */
 	define( 'DEFAULT_HEADER_IMAGE', get_stylesheet_directory_uri() . '/assets/img/viderum-hero.jpg' );
 
 	/*
-     *  Remove WordPress version meta tag
-     */
+	 *  Remove WordPress version meta tag
+	 */
 	add_filter( 'the_generator', '__return_false' );
 
 	/*
-     * Make theme available for translation.
-     */
+	 * Make theme available for translation.
+	 */
 	load_theme_textdomain( 'viderum' );
 
 	// Register Polylang strings.
@@ -58,18 +58,18 @@ function viderum_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
-     * Let WordPress manage the document title.
-     */
+	 * Let WordPress manage the document title.
+	 */
 	add_theme_support( 'title-tag' );
 
 	/*
-     * Add excerpt support to pages
-     */
+	 * Add excerpt support to pages
+	 */
 	add_post_type_support( 'page', 'excerpt' );
 
 	/*
-     * Enable support for Post Thumbnails on posts and pages.
-     */
+	 * Enable support for Post Thumbnails on posts and pages.
+	 */
 	add_theme_support( 'post-thumbnails' );
 
 	// Set the default content width.
@@ -97,9 +97,9 @@ function viderum_setup() {
 	);
 
 	/*
-     * Switch default core markup for search form, comment form, and comments
-     * to output valid HTML5.
-     */
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
 	add_theme_support(
 		'html5', array(
 			// 'comment-form',
@@ -192,7 +192,7 @@ add_action( 'wp_head', 'google_search_console_tags' );
  * Override default WordPress logo on wp-login.php
  *
  * @return void
- */
+ -->
 function viderum_theme_login_logo() {
 
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -319,33 +319,44 @@ add_action( 'widgets_init', 'viderum_widgets_init' );
 function salesforce_cf7_integration( $contact_form ) {
 	$url = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8';
 
-	if ( ! empty( $contact_form->posted_data['email'] ) ) {
+	if ( ! isset( $contact_form->posted_data ) && class_exists( 'WPCF7_Submission' ) ) {
+		$submission = WPCF7_Submission::get_instance();
+		if ( $submission ) {
+			$form_data = $submission->get_posted_data();
 
-		$response = wp_remote_post( $url, array(
-			'method' => 'POST',
-			'timeout' => 15,
-			'headers' => array(
-				'content-type' => 'application/x-www-form-urlencoded',
-			),
-			'body' => array(
-				"oid" => $contact_form->posted_data['oid'],
-				"lead_source" => $contact_form->posted_data['lead_source'],
-				"first-name" => $contact_form->posted_data['first-name'],
-				"last-name" => $contact_form->posted_data['last-name'],
-				"email" => $contact_form->posted_data['email'],
-				"company" => $contact_form->posted_data['company'],
-				"website" => $contact_form->posted_data['website'],
-				"00N1I00000L0VOe" => $contact_form->posted_data['00N1I00000L0VOe'],
-				"00N1I00000L0VOj" => $contact_form->posted_data['00N1I00000L0VOj'],
-				"00N1I00000L0VOo" => $contact_form->posted_data['00N1I00000L0VOo'],
-				"00N1I00000L0VOt" => $contact_form->posted_data['00N1I00000L0VOt'],
-				"00N1I00000L0VOy" => $contact_form->posted_data['00N1I00000L0VOy'],
-			),
-			)
-		);
-		if ( is_wp_error( $response ) ) {
-			new WP_Error( 'sf_error', __( 'Sorry, SalesForce data was not sent because of the following error:', 'viderum' ) . ' ' . $response->get_error_message() );
+			if ( ! empty( $form_data['email'] ) ) {
+				$response = wp_remote_post(
+					$url, array(
+						'method'  => 'POST',
+						'timeout' => 15,
+						'headers' => array(
+							'content-type' => 'application/x-www-form-urlencoded',
+						),
+						'body'    => array(
+							'oid'             => $form_data['oid'],
+							'lead_source'     => $form_data['lead_source'],
+							'first-name'      => $form_data['first_name'],
+							'last-name'       => $form_data['last_name'],
+							'email'           => $form_data['email'],
+							'company'         => $form_data['company'],
+							'website'         => $form_data['URL'],
+							'00N1I00000L0VOe' => ( isset( $form_data['00N1I00000L0VOe'] ) ? $form_data['00N1I00000L0VOe'] : 0 ),
+							'00N1I00000L0VOj' => ( isset( $form_data['00N1I00000L0VOj'] ) ? $form_data['00N1I00000L0VOj'] : 0 ),
+							'00N1I00000L0VOo' => ( isset( $form_data['00N1I00000L0VOo'] ) ? $form_data['00N1I00000L0VOo'] : 0 ),
+							'00N1I00000L0VOt' => ( isset( $form_data['00N1I00000L0VOt'] ) ? $form_data['00N1I00000L0VOt'] : 0 ),
+							'00N1I00000L0VOy' => ( isset( $form_data['00N1I00000L0VOy'] ) ? $form_data['00N1I00000L0VOy'] : 0 ),
+						),
+					)
+				);
+				if ( is_wp_error( $response ) ) {
+					new WP_Error( 'sf_error', __( 'Sorry, SalesForce data was not sent because of the following error:', 'viderum' ) . ' ' . $response->get_error_message() );
+				}
+			}
+		} else {
+			// We can't retrieve the form data.
+			return $contact_form;
 		}
 	}
 }
-add_action( 'wpcf7_before_send_mail', 'salesforce_cf7_integration' );
+add_action( 'wpcf7_before_send_mail', 'salesforce_cf7_integration', 1 );
+
