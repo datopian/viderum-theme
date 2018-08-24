@@ -192,7 +192,7 @@ add_action( 'wp_head', 'google_search_console_tags' );
  * Override default WordPress logo on wp-login.php
  *
  * @return void
- -->
+ */
 function viderum_theme_login_logo() {
 
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -313,26 +313,13 @@ add_action( 'widgets_init', 'viderum_widgets_init' );
 /**
  * Integrate Contact Form 7 with SalesForce
  *
- * @param [type] $cf7 Contact Form 7 form.
+ * @param [type] $contact_form Contact Form 7 form.
  * @return void
  */
-function salesforce_cf7_integration( $cf7 ) {
+function salesforce_cf7_integration( $contact_form ) {
 	$url = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8';
 
-	if ( ! empty( $cf7->posted_data['email'] ) ) {
-
-		$post_body[] = 'oid=' . $cf7->posted_data['oid'];
-		$post_body[] = 'lead_source=' . $cf7->posted_data['lead_source'];
-		$post_body[] = 'first-name=' . $cf7->posted_data['first-name'];
-		$post_body[] = 'last-name=' . $cf7->posted_data['last-name'];
-		$post_body[] = 'email=' . $cf7->posted_data['email'];
-		$post_body[] = 'company=' . $cf7->posted_data['company'];
-		$post_body[] = 'website=' . $cf7->posted_data['website'];
-		$post_body[] = '00N1I00000L0VOe=' . $cf7->posted_data['00N1I00000L0VOe'];
-		$post_body[] = '00N1I00000L0VOj=' . $cf7->posted_data['00N1I00000L0VOj'];
-		$post_body[] = '00N1I00000L0VOo=' . $cf7->posted_data['00N1I00000L0VOo'];
-		$post_body[] = '00N1I00000L0VOt=' . $cf7->posted_data['00N1I00000L0VOt'];
-		$post_body[] = '00N1I00000L0VOy=' . $cf7->posted_data['00N1I00000L0VOy'];
+	if ( ! empty( $contact_form->posted_data['email'] ) ) {
 
 		$response = wp_remote_post( $url, array(
 			'method' => 'POST',
@@ -340,14 +327,25 @@ function salesforce_cf7_integration( $cf7 ) {
 			'headers' => array(
 				'content-type' => 'application/x-www-form-urlencoded',
 			),
-			'body' => implode( '&', $post_body ),
+			'body' => array(
+				"oid" => $contact_form->posted_data['oid'],
+				"lead_source" => $contact_form->posted_data['lead_source'],
+				"first-name" => $contact_form->posted_data['first-name'],
+				"last-name" => $contact_form->posted_data['last-name'],
+				"email" => $contact_form->posted_data['email'],
+				"company" => $contact_form->posted_data['company'],
+				"website" => $contact_form->posted_data['website'],
+				"00N1I00000L0VOe" => $contact_form->posted_data['00N1I00000L0VOe'],
+				"00N1I00000L0VOj" => $contact_form->posted_data['00N1I00000L0VOj'],
+				"00N1I00000L0VOo" => $contact_form->posted_data['00N1I00000L0VOo'],
+				"00N1I00000L0VOt" => $contact_form->posted_data['00N1I00000L0VOt'],
+				"00N1I00000L0VOy" => $contact_form->posted_data['00N1I00000L0VOy'],
+			),
 			)
 		);
-
 		if ( is_wp_error( $response ) ) {
 			new WP_Error( 'sf_error', __( 'Sorry, SalesForce data was not sent because of the following error:', 'viderum' ) . ' ' . $response->get_error_message() );
 		}
 	}
-
 }
 add_action( 'wpcf7_before_send_mail', 'salesforce_cf7_integration' );
