@@ -321,26 +321,26 @@ function salesforce_cf7_integration( $cf7 ) {
 
 	if ( ! empty( $cf7->posted_data['email'] ) ) {
 
+		$post_body[] = 'oid=' . $cf7->posted_data['oid'];
+		$post_body[] = 'lead_source=' . $cf7->posted_data['lead_source'];
+		$post_body[] = 'first-name=' . $cf7->posted_data['first-name'];
+		$post_body[] = 'last-name=' . $cf7->posted_data['last-name'];
+		$post_body[] = 'email=' . $cf7->posted_data['email'];
+		$post_body[] = 'company=' . $cf7->posted_data['company'];
+		$post_body[] = 'website=' . $cf7->posted_data['website'];
+		$post_body[] = '00N1I00000L0VOe=' . $cf7->posted_data['00N1I00000L0VOe'];
+		$post_body[] = '00N1I00000L0VOj=' . $cf7->posted_data['00N1I00000L0VOj'];
+		$post_body[] = '00N1I00000L0VOo=' . $cf7->posted_data['00N1I00000L0VOo'];
+		$post_body[] = '00N1I00000L0VOt=' . $cf7->posted_data['00N1I00000L0VOt'];
+		$post_body[] = '00N1I00000L0VOy=' . $cf7->posted_data['00N1I00000L0VOy'];
+
 		$response = wp_remote_post( $url, array(
 			'method' => 'POST',
 			'timeout' => 15,
 			'headers' => array(
 				'content-type' => 'application/x-www-form-urlencoded',
 			),
-			'body' => array(
-				'oid' => $cf7->posted_data['oid'],
-				'lead_source' => $cf7->posted_data['lead_source'],
-				'first-name' => $cf7->posted_data['first-name'],
-				'last-name' => $cf7->posted_data['last-name'],
-				'email' => $cf7->posted_data['email'],
-				'company' => $cf7->posted_data['company'],
-				'website' => $cf7->posted_data['website'],
-				'00N1I00000L0VOe' => $cf7->posted_data['00N1I00000L0VOe'],
-				'00N1I00000L0VOj' => $cf7->posted_data['00N1I00000L0VOj'],
-				'00N1I00000L0VOo' => $cf7->posted_data['00N1I00000L0VOo'],
-				'00N1I00000L0VOt' => $cf7->posted_data['00N1I00000L0VOt'],
-				'00N1I00000L0VOy' => $cf7->posted_data['00N1I00000L0VOy'],
-			),
+			'body' => implode( '&', $post_body ),
 			)
 		);
 
@@ -351,15 +351,3 @@ function salesforce_cf7_integration( $cf7 ) {
 
 }
 add_action( 'wpcf7_before_send_mail', 'salesforce_cf7_integration' );
-
-/**
- * Override default Contact Form 7 form encoding type.
- *
- * @param [type] $enctype Form encoding type.
- * @return $enctype
- */
-function salesforce_cf7_enctype_override( $enctype ) {
-	$enctype = 'application/x-www-form-urlencoded';
-	return $enctype;
-}
-add_filter( 'wpcf7_form_enctype', 'salesforce_cf7_enctype_override', 10, 1 );
