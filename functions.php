@@ -192,7 +192,7 @@ add_action( 'wp_head', 'google_search_console_tags' );
  * Override default WordPress logo on wp-login.php
  *
  * @return void
- */
+ -->
 function viderum_theme_login_logo() {
 
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -319,27 +319,27 @@ add_action( 'widgets_init', 'viderum_widgets_init' );
 function salesforce_cf7_integration( $cf7 ) {
 	$url = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8';
 
-	if ( ! empty( $cf7->$posted_data['email'] ) ) {
+	if ( ! empty( $cf7->posted_data['email'] ) ) {
 
-		$response = wp_safe_remote_post( $url, array(
+		$response = wp_remote_post( $url, array(
 			'method' => 'POST',
 			'timeout' => 15,
 			'headers' => array(
 				'content-type' => 'application/x-www-form-urlencoded',
 			),
 			'body' => array(
-				'oid' => $cf7->$posted_data['oid'],
-				'lead_source' => $cf7->$posted_data['lead_source'],
-				'first-name' => $cf7->$posted_data['first-name'],
-				'last-name' => $cf7->$posted_data['last-name'],
-				'email' => $cf7->$posted_data['email'],
-				'company' => $cf7->$posted_data['company'],
-				'website' => $cf7->$posted_data['website'],
-				'00N1I00000L0VOe' => $cf7->$posted_data['00N1I00000L0VOe'],
-				'00N1I00000L0VOj' => $cf7->$posted_data['00N1I00000L0VOj'],
-				'00N1I00000L0VOo' => $cf7->$posted_data['00N1I00000L0VOo'],
-				'00N1I00000L0VOt' => $cf7->$posted_data['00N1I00000L0VOt'],
-				'00N1I00000L0VOy' => $cf7->$posted_data['00N1I00000L0VOy'],
+				'oid' => $cf7->posted_data['oid'],
+				'lead_source' => $cf7->posted_data['lead_source'],
+				'first-name' => $cf7->posted_data['first-name'],
+				'last-name' => $cf7->posted_data['last-name'],
+				'email' => $cf7->posted_data['email'],
+				'company' => $cf7->posted_data['company'],
+				'website' => $cf7->posted_data['website'],
+				'00N1I00000L0VOe' => $cf7->posted_data['00N1I00000L0VOe'],
+				'00N1I00000L0VOj' => $cf7->posted_data['00N1I00000L0VOj'],
+				'00N1I00000L0VOo' => $cf7->posted_data['00N1I00000L0VOo'],
+				'00N1I00000L0VOt' => $cf7->posted_data['00N1I00000L0VOt'],
+				'00N1I00000L0VOy' => $cf7->posted_data['00N1I00000L0VOy'],
 			),
 			)
 		);
