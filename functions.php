@@ -351,3 +351,15 @@ function salesforce_cf7_integration( $cf7 ) {
 
 }
 add_action( 'wpcf7_before_send_mail', 'salesforce_cf7_integration' );
+
+/**
+ * Override default Contact Form 7 form encoding type.
+ *
+ * @param [type] $enctype Form encoding type.
+ * @return $enctype
+ */
+function salesforce_cf7_enctype_override( $enctype ) {
+	$enctype = 'application/x-www-form-urlencoded';
+	return $enctype;
+}
+add_filter( 'wpcf7_form_enctype', 'salesforce_cf7_enctype_override', 10, 1 );
