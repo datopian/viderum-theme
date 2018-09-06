@@ -192,7 +192,7 @@ add_action( 'wp_head', 'google_search_console_tags' );
  * Override default WordPress logo on wp-login.php
  *
  * @return void
- -->
+ */
 function viderum_theme_login_logo() {
 
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
