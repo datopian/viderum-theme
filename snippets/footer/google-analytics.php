@@ -15,7 +15,8 @@ $ga_tracking_code = get_option( 'viderum_settings' )['ga_tracking_id'];
 	var config = {
 		apiKey: '18bebc71136a7eadcbf114a44278ef812c277351',
 		product: 'COMMUNITY',
-		optionalCookies: [
+		initialState: "OPEN",
+		necessaryCookies: [
 			{
 				name: 'analytics',
 				label: 'Analytics',
