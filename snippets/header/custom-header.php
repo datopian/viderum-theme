@@ -36,7 +36,7 @@ if ( is_front_page() || is_single() || ( ! is_post_type_archive( $case_study_pos
 	endif;
 endif;
 
-if ( is_front_page() && !is_home() ) :
+if ( is_front_page() && ! is_home() ) :
 	$page_header_default_class = 'custom-header-media-default';
 endif;
 
