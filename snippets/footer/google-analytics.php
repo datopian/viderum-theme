@@ -17,7 +17,13 @@ $ga_tracking_code = get_option( 'viderum_settings' )['ga_tracking_id'];
 		apiKey: '18bebc71136a7eadcbf114a44278ef812c277351',
 		product: 'COMMUNITY',
 		initialState: "OPEN",
-		onLoad: function () {
+		optionalCookies: [
+			{
+				name: 'analytics',
+				label: 'Analytics',
+				description: 'Analytics cookies help us to improve website and services by collecting and reporting information on its usage.',
+				cookies: necessaryCookies,
+				onAccept: function () {
 <?php if ( $ga_tracking_code ) : ?>
 						(function (i, s, o, g, r, a, m) {
 							i['GoogleAnalyticsObject'] = r;
@@ -34,7 +40,9 @@ $ga_tracking_code = get_option( 'viderum_settings' )['ga_tracking_id'];
 						ga('create', '<?php echo esc_js( $ga_tracking_code ); ?>', 'auto');
 						ga('send', 'pageview');
 <?php endif; ?>
-		},
+				}
+			}
+		],
 		position: 'RIGHT',
 		theme: 'DARK'
 	};
