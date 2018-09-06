@@ -12,17 +12,19 @@ $ga_tracking_code = get_option( 'viderum_settings' )['ga_tracking_id'];
 
 ?>
 <script>
+	var necessaryCookies = ['_ga', '_gid', '_gat', '__utma', '__utmt', '__utmb', '__utmc', '__utmz', '__utmv'];
 	var config = {
 		apiKey: '18bebc71136a7eadcbf114a44278ef812c277351',
 		product: 'COMMUNITY',
 		initialState: "OPEN",
-		necessaryCookies: ['_ga', '_gid', '_gat', '__utma', '__utmt', '__utmb', '__utmc', '__utmz', '__utmv'],
+		necessaryCookies: necessaryCookies,
 		optionalCookies: [
 			{
 				name: 'analytics',
 				label: 'Analytics',
 				description: 'Analytics cookies help us to improve website and services by collecting and reporting information on its usage.',
-				cookies: ['_ga', '_gid', '_gat', '__utma', '__utmt', '__utmb', '__utmc', '__utmz', '__utmv'],
+				cookies: necessaryCookies,
+				recommendedState: true,
 				onAccept: function () {
 <?php if ( $ga_tracking_code ) : ?>
 						(function (i, s, o, g, r, a, m) {
