@@ -40,7 +40,7 @@ $ga_tracking_code = get_option( 'viderum_settings' )['ga_tracking_id'];
 				ga('set', 'anonymizeIp', true);
 				ga('send', 'pageview');
 				<?php endif; ?>
-			}
+			},
 			onRevoke: function() {
 				// Disable GA
 				window['ga-disable-<?php esc_html( $ga_tracking_code ); ?>'] = true;
