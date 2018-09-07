@@ -21,7 +21,7 @@ $ga_tracking_code = get_option( 'viderum_settings' )['ga_tracking_id'];
 			label: 'Analytics',
 			description: 'Analytics cookies help us to improve website and services by collecting and reporting information on its usage.',
 			cookies: ['_ga', '_gid', '_gat', '__utma', '__utmt', '__utmb', '__utmc', '__utmz', '__utmv'],
-			recommendedState: true,
+			initialConsentState: "on",
 			onAccept: function() {
 				<?php if ( $ga_tracking_code ) : ?>
 				(function(i, s, o, g, r, a, m) {
