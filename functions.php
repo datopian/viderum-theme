@@ -157,7 +157,7 @@ function viderum_scripts() {
 	wp_enqueue_script( 'popper-js', get_stylesheet_directory_uri() . '/assets/js/popper.min.js', array( 'bootstrap-js' ), null, true );
 
 	// Cookie Control.
-	wp_enqueue_script( 'cookie-control', 'https://cc.cdn.civiccomputing.com/8.0/cookieControl-8.0.min.js', array(), null, true );
+	wp_enqueue_script( 'cookie-control', 'https://cc.cdn.civiccomputing.com/8/cookieControl-8.1.min.js', array(), null, true );
 
 }
 
