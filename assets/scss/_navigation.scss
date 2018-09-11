@@ -82,8 +82,8 @@
     }
 
     .call-to-action-menu{
-        @extend .ml-3;
-        a{
+		a{
+			@extend .m-1;
             color: inherit;
             @extend .text-light;
             @extend .btn-primary;
@@ -98,7 +98,7 @@
         @extend .list-inline-item;
         &:first-child{
             a{
-                @extend .btn-primary;        
+                @extend .btn-primary;
             }
         }
     }
