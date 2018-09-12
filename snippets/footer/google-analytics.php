@@ -9,12 +9,21 @@
  */
 
 $ga_tracking_code = get_option( 'viderum_settings' )['ga_tracking_id'];
+$cc_api_key = '18bebc71136a7eadcbf114a44278ef812c277351';
+
+if ( function_exists( 'pll_current_language' ) && 'de' === pll_current_language() ) :
+	// Cookie Control API key for viderum.de
+	$cc_api_key = '353d17fd21dc5abb8cc089927b2938416fe47fc7';
+
+	// Google Analytics tracking id for viderum.de
+	$ga_tracking_code = 'UA-71073754-3';
+endif;
 
 ?>
 <script>
 	var necessaryCookies = ['_ga', '_gid', '_gat', '__utma', '__utmt', '__utmb', '__utmc', '__utmz', '__utmv'];
 	var config = {
-		apiKey: '18bebc71136a7eadcbf114a44278ef812c277351',
+		apiKey: '<?php echo esc_html( $cc_api_key ); ?>',
 		product: 'COMMUNITY',
 		initialState: "OPEN",
 		necessaryCookies: necessaryCookies,
