@@ -15,7 +15,7 @@ $locales = [];
 
 if ( function_exists( 'pll_current_language' ) && 'de' === pll_current_language() ) :
 	// Cookie Control account type for viderum.de
-	$product = 'PRO_MULTISITE';
+	$product = 'PRO';
 
 	// Cookie Control API key for viderum.de
 	$cc_api_key = 'cddf33e1315a5ea640440460d26f3cb7ca311818';
