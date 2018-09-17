@@ -9,14 +9,41 @@
  */
 
 $ga_tracking_code = get_option( 'viderum_settings' )['ga_tracking_id'];
+$product = 'COMMUNITY';
 $cc_api_key = '18bebc71136a7eadcbf114a44278ef812c277351';
+$locales = [];
 
 if ( function_exists( 'pll_current_language' ) && 'de' === pll_current_language() ) :
+	// Cookie Control account type for viderum.de
+	$product = 'PRO';
+
 	// Cookie Control API key for viderum.de
-	$cc_api_key = '353d17fd21dc5abb8cc089927b2938416fe47fc7';
+	$cc_api_key = 'cddf33e1315a5ea640440460d26f3cb7ca311818';
 
 	// Google Analytics tracking id for viderum.de
 	$ga_tracking_code = 'UA-71073754-3';
+
+	$locales = "[
+	{
+		locale: 'de',
+		text: {
+			title: 'Viderum verwendet Cookies, um Daten auf Ihrem Computer zu spreichern und Ihnen diese Website in bestmöglicher Qualität anzubieten.',
+			intro: 'Einige dieser Cookies sind für die störungsfreie Nutzung der Website notwendig, während andere uns dabei helfen, mehr darüber zu erfahren, wie diese Website verwendet wird.',
+			necessaryTitle: 'Notwendige Cookies',
+			necessaryDescription: 'Notwendige Cookies ermöglichen die Kernfunktionalität wie beispielsweise die Seitennavigation oder Zugang zu passwortgeschützten Bereichen. Diese Website funktioniert ohne diese Cookies nicht. Solche Cookies können nur durch Änderungen an Ihren Browser-Einstellungen deaktiviert werden.',
+			on: 'An',
+			off: 'Aus',
+			notifyTitle: 'Cookie-Einstellungen für diese Website',
+			notifyDescription: 'Viderum verwendet Cookies, um die Funktionalität dieser Website zu verbessern.',
+			accept: 'Akzeptieren',
+			settings: 'Cookie-Einstellungen',
+			optionalCookies: [{
+				label: 'Auswertungen',
+				description: 'Diese Cookies helfen uns dabei, die Website für Ihren Gebrauch zu optimieren, indem wir Informationen zur individuellen Nutzung anonym sammeln und auswerten.'
+			}],
+			acceptRecommended: 'Empfohlene Einstellungen akzeptieren',
+		}
+	}]";
 endif;
 
 ?>
@@ -24,8 +51,11 @@ endif;
 	var necessaryCookies = ['_ga', '_gid', '_gat', '__utma', '__utmt', '__utmb', '__utmc', '__utmz', '__utmv'];
 	var config = {
 		apiKey: '<?php echo esc_html( $cc_api_key ); ?>',
-		product: 'COMMUNITY',
+		product: '<?php echo esc_html( $product ); ?>',
 		initialState: "OPEN",
+		<?php if ( function_exists( 'pll_current_language' ) && 'de' === pll_current_language() ) : ?>
+		locales: <?php echo $locales; ?>,
+		<?php endif; ?>
 		necessaryCookies: necessaryCookies,
 		optionalCookies: [{
 			name: 'analytics',
