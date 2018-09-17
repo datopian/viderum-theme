@@ -24,26 +24,27 @@ if ( function_exists( 'pll_current_language' ) && 'de' === pll_current_language(
 	$ga_tracking_code = 'UA-71073754-3';
 
 	$locales = "[
-	{
-		locale: 'de',
-		text: {
-			title: 'Viderum verwendet Cookies, um Daten auf Ihrem Computer zu spreichern und Ihnen diese Website in bestmöglicher Qualität anzubieten.',
-			intro: 'Einige dieser Cookies sind für die störungsfreie Nutzung der Website notwendig, während andere uns dabei helfen, mehr darüber zu erfahren, wie diese Website verwendet wird.',
-			necessaryTitle: 'Notwendige Cookies',
-			necessaryDescription: 'Notwendige Cookies ermöglichen die Kernfunktionalität wie beispielsweise die Seitennavigation oder Zugang zu passwortgeschützten Bereichen. Diese Website funktioniert ohne diese Cookies nicht. Solche Cookies können nur durch Änderungen an Ihren Browser-Einstellungen deaktiviert werden.',
-			on: 'An',
-			off: 'Aus',
-			notifyTitle: 'Cookie-Einstellungen für diese Website',
-			notifyDescription: 'Viderum verwendet Cookies, um die Funktionalität dieser Website zu verbessern.',
-			accept: 'Akzeptieren',
-			settings: 'Cookie-Einstellungen',
-			optionalCookies: [{
-				label: 'Auswertungen',
-				description: 'Diese Cookies helfen uns dabei, die Website für Ihren Gebrauch zu optimieren, indem wir Informationen zur individuellen Nutzung anonym sammeln und auswerten.'
-			}],
-			acceptRecommended: 'Empfohlene Einstellungen akzeptieren',
+		{
+			locale: 'de',
+			text: {
+				title: 'Viderum verwendet Cookies, um Daten auf Ihrem Computer zu spreichern und Ihnen diese Website in bestmöglicher Qualität anzubieten.',
+				intro: 'Einige dieser Cookies sind für die störungsfreie Nutzung der Website notwendig, während andere uns dabei helfen, mehr darüber zu erfahren, wie diese Website verwendet wird.',
+				necessaryTitle: 'Notwendige Cookies',
+				necessaryDescription: 'Notwendige Cookies ermöglichen die Kernfunktionalität wie beispielsweise die Seitennavigation oder Zugang zu passwortgeschützten Bereichen. Diese Website funktioniert ohne diese Cookies nicht. Solche Cookies können nur durch Änderungen an Ihren Browser-Einstellungen deaktiviert werden.',
+				on: 'An',
+				off: 'Aus',
+				notifyTitle: 'Cookie-Einstellungen für diese Website',
+				notifyDescription: 'Viderum verwendet Cookies, um die Funktionalität dieser Website zu verbessern.',
+				accept: 'Akzeptieren',
+				settings: 'Cookie-Einstellungen',
+				optionalCookies: [{
+					label: 'Auswertungen',
+					description: 'Diese Cookies helfen uns dabei, die Website für Ihren Gebrauch zu optimieren, indem wir Informationen zur individuellen Nutzung anonym sammeln und auswerten.'
+				}],
+				acceptRecommended: 'Empfohlene Einstellungen akzeptieren'
+			}
 		}
-	}]";
+	]";
 endif;
 
 ?>
