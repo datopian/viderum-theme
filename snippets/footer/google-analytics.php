@@ -52,10 +52,10 @@ endif;
 	var config = {
 		apiKey: '<?php echo esc_html( $cc_api_key ); ?>',
 		product: '<?php echo esc_html( $product ); ?>',
-		initialState: "OPEN",
 	<?php if ( function_exists( 'pll_current_language' ) && 'de' === pll_current_language() ) : ?>
 		locales: <?php echo $locales; ?>,
 	<?php endif; ?>
+		initialState: "OPEN",
 		necessaryCookies: necessaryCookies,
 		optionalCookies: [{
 			name: 'analytics',
