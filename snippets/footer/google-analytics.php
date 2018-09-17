@@ -37,6 +37,8 @@ if ( function_exists( 'pll_current_language' ) && 'de' === pll_current_language(
 				notifyDescription: 'Viderum verwendet Cookies, um die Funktionalität dieser Website zu verbessern.',
 				accept: 'Akzeptieren',
 				settings: 'Cookie-Einstellungen',
+				thirdPartyTitle: 'Einige Cookies benötigen Ihre Aufmerksamkeit',
+				thirdPartyDescription: 'Für die folgenden Cookies konnte die Zustimmung nicht automatisch entzogen werden. Öffnen Sie bitte die folgenden Links, um Sie manuell zu deaktivieren.',
 				optionalCookies: [{
 					label: 'Auswertungen',
 					description: 'Diese Cookies helfen uns dabei, die Website für Ihren Gebrauch zu optimieren, indem wir Informationen zur individuellen Nutzung anonym sammeln und auswerten.'
